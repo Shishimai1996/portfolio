@@ -1,6 +1,6 @@
 import * as React from 'react'
-import figma from './figma.svg'
-import react from './react.jpg'
+import figma from '../figma.svg'
+import react from '../react.jpg'
 import { Typography, Popover, Stack, Box, Grid } from '@mui/material'
 
 interface MessageData {

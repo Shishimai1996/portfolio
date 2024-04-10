@@ -3,9 +3,9 @@ import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import ButtonBase from '@mui/material/ButtonBase'
 import Typography from '@mui/material/Typography'
-import reactTypescript from './reactTypescript.png'
-import grafana from './grafana.png'
-import chartJs from './chartJs.png'
+import reactTypescript from '../reactTypescript.png'
+import grafana from '../grafana.png'
+import chartJs from '../chartJs.png'
 
 const images = [
   {
