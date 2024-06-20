@@ -18,7 +18,6 @@ import MoreIcon from '@mui/icons-material/MoreVert'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import TranslateIcon from '@mui/icons-material/Translate'
 import { useEffect, useState } from 'react'
-import escapeStringRegexp from 'escape-string-regexp'
 import { Input } from '@mui/material'
 
 const Search = styled('div')(({ theme }) => ({
