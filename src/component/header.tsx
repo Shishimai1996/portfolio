@@ -78,9 +78,9 @@ export default function Header() {
     handleMobileMenuClose()
   }
 
-  const [search, setSearch] = useState('')
+  const [search] = useState('')
   const [list, setList] = useState<string[]>([])
-  console.log(search)
+  // console.log(search)
   console.log(list)
   useEffect(() => {
     const listItems = Array.from(document.querySelectorAll('ul > li')).map(
