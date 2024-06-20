@@ -5,8 +5,6 @@ import sakura from './sakura.jpg'
 import Header from './component/header'
 import { Grow } from '@mui/material'
 
-import Three from './component/three'
-
 function App() {
   const [showHello, setShowHello] = useState(false)
 
@@ -31,7 +29,6 @@ function App() {
             <div className="text-overlay">H e l l o !</div>
           </Grow>
         </div>
-        <Three />
         <h1>Welcome to shishimai portfolio!</h1>
         <Page />
       </body>
