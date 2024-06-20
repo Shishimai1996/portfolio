@@ -23,8 +23,12 @@ const Skill = () => {
 
   const currentDate: Date = new Date()
 
+  // const targetDate = anchorEl?.getAttribute('data-date')
+  //   ? new Date(anchorEl.getAttribute('data-date')!)
+  //   : new Date()
+
   const targetDate = anchorEl?.getAttribute('data-date')
-    ? new Date(anchorEl.getAttribute('data-date')!)
+    ? new Date(anchorEl.getAttribute('data-date') ?? '')
     : new Date()
 
   const diffInMilliSeconds = currentDate.getTime() - targetDate.getTime()

@@ -6,19 +6,12 @@ import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import InputBase from '@mui/material/InputBase'
-import Badge from '@mui/material/Badge'
 import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
-import AccountCircle from '@mui/icons-material/AccountCircle'
-import MailIcon from '@mui/icons-material/Mail'
-import NotificationsIcon from '@mui/icons-material/Notifications'
-import MoreIcon from '@mui/icons-material/MoreVert'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import TranslateIcon from '@mui/icons-material/Translate'
 import { useEffect, useState } from 'react'
-import { Input } from '@mui/material'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,9 +53,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-interface Props {
-  list: string[]
-}
+// interface Props {
+//   list: string[]
+// }
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -96,10 +89,10 @@ export default function Header() {
     setList(listItems)
   }, [])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.currentTarget.value)
-    console.log(search)
-  }
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearch(e.currentTarget.value)
+  //   console.log(search)
+  // }
   const filteredList = list.filter((item) => {
     typeof item === 'string' &&
       item.toLowerCase().includes(search.toLowerCase())

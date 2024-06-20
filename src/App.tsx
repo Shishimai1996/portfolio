@@ -1,4 +1,6 @@
-import React, { useEffect, useState, FC } from 'react'
+import React from 'react'
+
+import { useEffect, useState } from 'react'
 import './App.css'
 import Page from './page'
 import sakura from './sakura.jpg'
