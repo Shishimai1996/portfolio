@@ -11,10 +11,9 @@ function App() {
   const [showHello, setShowHello] = useState(false)
 
   useEffect(() => {
-    // ページが読み込まれた後、一定時間後にHello!を表示する
     const timer = setTimeout(() => {
       setShowHello(true)
-    }, 1000) // 例: 1秒後に表示
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [])

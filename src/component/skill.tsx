@@ -84,7 +84,7 @@ const Skill = () => {
               }}
             >
               <img
-                src={'/image/html.png'}
+                src={'../../public/image/html.png'}
                 tabIndex={0}
                 data-date="2022-08-01"
                 alt="HTML"
@@ -95,7 +95,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/css.png'}
+                src={'../../public/image/css.png'}
                 tabIndex={1}
                 data-date="2022-08-01"
                 alt="CSS"
@@ -106,7 +106,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/javascript.png'}
+                src={'../../public/image/javascript.png'}
                 tabIndex={2}
                 data-date="2022-08-01"
                 alt="Javascript"
@@ -117,7 +117,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/typescript.png'}
+                src={'../../public/image/typescript.png'}
                 alt="Typescript"
                 style={{ width: '7%' }}
                 tabIndex={3}
@@ -151,7 +151,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/next.png'}
+                src={'../../public/image/next.png'}
                 alt="Next.js"
                 style={{ width: '7%' }}
                 tabIndex={5}
@@ -162,7 +162,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/node.png'}
+                src={'../../public/image/node.png'}
                 alt="Node.js"
                 style={{ width: '7%' }}
                 tabIndex={6}
@@ -173,7 +173,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/express.png'}
+                src={'../../public/image/express.png'}
                 alt="Express.js"
                 style={{ width: '7%' }}
                 tabIndex={7}
@@ -219,7 +219,7 @@ const Skill = () => {
               }}
             >
               <img
-                src={'/image/vscode.png'}
+                src={'../../public/image/vscode.png'}
                 alt="Visual Studio Code"
                 style={{ width: '6%' }}
                 tabIndex={9}
@@ -230,7 +230,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'/image/github.png'}
+                src={'../../public/image/github.png'}
                 alt="GitHub"
                 style={{ width: '7%' }}
                 tabIndex={10}
