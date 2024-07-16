@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 import TranslateIcon from '@mui/icons-material/Translate'
 import { useEffect, useState } from 'react'
 
@@ -43,7 +44,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -53,21 +53,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-// interface Props {
-//   list: string[]
-// }
-
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null)
-
+  const [isHeartClicked, setIsHeartClicked] = useState(false)
   const isMenuOpen = Boolean(anchorEl)
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-
-  //   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-  //     setAnchorEl(event.currentTarget)
-  //   }
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null)
@@ -78,28 +70,27 @@ export default function Header() {
     handleMobileMenuClose()
   }
 
-  const [search] = useState('')
+  const [search, setSearch] = useState('')
   const [list, setList] = useState<string[]>([])
-  // console.log(search)
-  console.log(list)
+
   useEffect(() => {
     const listItems = Array.from(document.querySelectorAll('ul > li')).map(
       (li) => li.textContent || ''
     )
+
     setList(listItems)
   }, [])
 
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setSearch(e.currentTarget.value)
-  //   console.log(search)
-  // }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.currentTarget.value)
+  }
+
   const filteredList = list.filter((item) => {
-    typeof item === 'string' &&
+    return (
+      typeof item === 'string' &&
       item.toLowerCase().includes(search.toLowerCase())
+    )
   })
-  //   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-  //     setMobileMoreAnchorEl(event.currentTarget)
-  //   }
 
   const menuId = 'primary-search-account-menu'
   const renderMenu = (
@@ -139,41 +130,15 @@ export default function Header() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-    >
-      {/* <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem> */}
-      {/* <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem> */}
-    </Menu>
+    ></Menu>
   )
+
+  const handleClickHeart = () => {
+    setIsHeartClicked(true)
+    setTimeout(() => {
+      setIsHeartClicked(false)
+    }, 400)
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -182,15 +147,6 @@ export default function Header() {
         sx={{ backgroundColor: '#f9e1f6c5', color: '#ffffff' }}
       >
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Typography
             variant="h6"
             noWrap
@@ -206,14 +162,9 @@ export default function Header() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-            />
-
-            {/* <Input
-              type="text"
-              placeholder="Search..."
               value={search}
-              onChange={(e) => handleInputChange(e)}
-            /> */}
+              onChange={handleInputChange}
+            />
           </Search>
           <ul>
             {filteredList.map((item) => {
@@ -222,25 +173,17 @@ export default function Header() {
           </ul>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" sx={{ color: 'white' }}>
-              <FavoriteBorderIcon />
+            <IconButton
+              size="large"
+              sx={{ color: isHeartClicked ? 'red' : 'inherit' }}
+              onClick={handleClickHeart}
+            >
+              {isHeartClicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </IconButton>
             <IconButton size="large" sx={{ color: 'white' }}>
               <TranslateIcon />
             </IconButton>
           </Box>
-          {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box> */}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

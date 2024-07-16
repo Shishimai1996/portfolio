@@ -1,6 +1,15 @@
 import * as React from 'react'
-import figma from '../figma.svg'
-import react from '../react.jpg'
+import figma from '../image/figma.svg'
+import react from '../image/react.jpg'
+import html from '../image/html.png'
+import css from '../image/css.png'
+import express from '../image/express.png'
+import github from '../image/github.png'
+import javascript from '../image/javascript.png'
+import next from '../image/next.png'
+import node from '../image/node.png'
+import typescript from '../image/typescript.png'
+import vscode from '../image/vscode.png'
 import { Typography, Popover, Stack, Box, Grid } from '@mui/material'
 
 interface MessageData {
@@ -22,10 +31,6 @@ const Skill = () => {
   const open = Boolean(anchorEl)
 
   const currentDate: Date = new Date()
-
-  // const targetDate = anchorEl?.getAttribute('data-date')
-  //   ? new Date(anchorEl.getAttribute('data-date')!)
-  //   : new Date()
 
   const targetDate = anchorEl?.getAttribute('data-date')
     ? new Date(anchorEl.getAttribute('data-date') ?? '')
@@ -84,7 +89,7 @@ const Skill = () => {
               }}
             >
               <img
-                src={'../../public/image/html.png'}
+                src={html}
                 tabIndex={0}
                 data-date="2022-08-01"
                 alt="HTML"
@@ -95,7 +100,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/css.png'}
+                src={css}
                 tabIndex={1}
                 data-date="2022-08-01"
                 alt="CSS"
@@ -106,7 +111,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/javascript.png'}
+                src={javascript}
                 tabIndex={2}
                 data-date="2022-08-01"
                 alt="Javascript"
@@ -117,7 +122,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/typescript.png'}
+                src={typescript}
                 alt="Typescript"
                 style={{ width: '7%' }}
                 tabIndex={3}
@@ -151,7 +156,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/next.png'}
+                src={next}
                 alt="Next.js"
                 style={{ width: '7%' }}
                 tabIndex={5}
@@ -162,7 +167,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/node.png'}
+                src={node}
                 alt="Node.js"
                 style={{ width: '7%' }}
                 tabIndex={6}
@@ -173,7 +178,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/express.png'}
+                src={express}
                 alt="Express.js"
                 style={{ width: '7%' }}
                 tabIndex={7}
@@ -219,7 +224,7 @@ const Skill = () => {
               }}
             >
               <img
-                src={'../../public/image/vscode.png'}
+                src={vscode}
                 alt="Visual Studio Code"
                 style={{ width: '6%' }}
                 tabIndex={9}
@@ -230,7 +235,7 @@ const Skill = () => {
                 onMouseLeave={handlePopoverClose}
               />
               <img
-                src={'../../public/image/github.png'}
+                src={github}
                 alt="GitHub"
                 style={{ width: '7%' }}
                 tabIndex={10}
