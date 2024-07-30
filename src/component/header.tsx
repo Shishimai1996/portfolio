@@ -13,6 +13,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import TranslateIcon from '@mui/icons-material/Translate'
 import { useEffect, useState } from 'react'
+import sakura from '../image/sakura.jpg'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,7 +54,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }))
 
-export default function Header() {
+interface HeaderComponentProps {
+  onValueChange: (value: number) => void
+}
+
+export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null)
@@ -70,68 +75,113 @@ export default function Header() {
     handleMobileMenuClose()
   }
 
-  const [search, setSearch] = useState('')
-  const [list, setList] = useState<string[]>([])
+  const [search, setSearch] = useState<string>('')
+  const [debouncedValue, setDebouncedValue] = useState(search)
+  // const [list, setList] = useState<string[]>([])
 
-  useEffect(() => {
-    const listItems = Array.from(document.querySelectorAll('ul > li')).map(
-      (li) => li.textContent || ''
-    )
+  // useEffect(() => {
+  //   const listItems = Array.from(document.querySelectorAll('ul > li')).map(
+  //     (li) => li.textContent ?? ''
+  //   )
 
-    setList(listItems)
-  }, [])
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setList(listItems)
+  // }, [])
+  const searchList = {
+    profile: 0,
+    Profile: 0,
+    PROFILE: 0,
+    skill: 1,
+    Skill: 1,
+    SKILL: 1,
+    work: 2,
+    Work: 2,
+    WORK: 2,
+    resume: 3,
+    Resume: 3,
+    RESUME: 3,
+    contact: 0,
+    address: 0,
+    about: 0,
+    me: 0,
+    programming: 1,
+    language: 1,
+    framework: 1,
+    design: 1,
+    tool: 1,
+    development: 1,
+    grafana: 2,
+    chart: 2,
+  }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setSearch(e.currentTarget.value)
   }
 
-  const filteredList = list.filter((item) => {
-    return (
-      typeof item === 'string' &&
-      item.toLowerCase().includes(search.toLowerCase())
-    )
-  })
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(search)
+    }, 300)
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [search])
 
-  const menuId = 'primary-search-account-menu'
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  )
+  useEffect(() => {
+    const searchValue = searchList[debouncedValue as keyof typeof searchList]
+    if (searchValue !== undefined) {
+      onValueChange(searchValue)
+    } else {
+      console.log('Value not found in searchList')
+    }
+  }, [debouncedValue, onValueChange])
+  // const filteredList = list.filter((item) => {
+  //   return (
+  //     typeof item === 'string' &&
+  //     item.toLowerCase().includes(search.toLowerCase())
+  //   )
+  // })
 
-  const mobileMenuId = 'primary-search-account-menu-mobile'
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    ></Menu>
-  )
+  // const menuId = 'primary-search-account-menu'
+  // const renderMenu = (
+  //   <Menu
+  //     anchorEl={anchorEl}
+  //     anchorOrigin={{
+  //       vertical: 'top',
+  //       horizontal: 'right',
+  //     }}
+  //     id={menuId}
+  //     keepMounted
+  //     transformOrigin={{
+  //       vertical: 'top',
+  //       horizontal: 'right',
+  //     }}
+  //     open={isMenuOpen}
+  //     onClose={handleMenuClose}
+  //   >
+  //     <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+  //     <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+  //   </Menu>
+  // )
+
+  // const mobileMenuId = 'primary-search-account-menu-mobile'
+  // const renderMobileMenu = (
+  //   <Menu
+  //     anchorEl={mobileMoreAnchorEl}
+  //     anchorOrigin={{
+  //       vertical: 'top',
+  //       horizontal: 'right',
+  //     }}
+  //     id={mobileMenuId}
+  //     keepMounted
+  //     transformOrigin={{
+  //       vertical: 'top',
+  //       horizontal: 'right',
+  //     }}
+  //     open={isMobileMenuOpen}
+  //     onClose={handleMobileMenuClose}
+  //   ></Menu>
+  // )
 
   const handleClickHeart = () => {
     setIsHeartClicked(true)
@@ -144,8 +194,28 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        sx={{ backgroundColor: '#f9e1f6c5', color: '#ffffff' }}
+        sx={{
+          // height: '400px',
+          color: '#523601dc',
+          // position: 'relative',
+          // overflow: 'hidden',
+          backgroundColor: '#f2f6f9',
+        }}
       >
+        {/* <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url(${sakura})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(1.5px)',
+            zIndex: -1,
+          }}
+        /> */}
         <Toolbar>
           <Typography
             variant="h6"
@@ -156,7 +226,7 @@ export default function Header() {
             Portfolio
           </Typography>
           <Search>
-            <SearchIconWrapper>
+            <SearchIconWrapper sx={{ borderColor: '#523601dc' }}>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
@@ -166,11 +236,11 @@ export default function Header() {
               onChange={handleInputChange}
             />
           </Search>
-          <ul>
+          {/* <ul>
             {filteredList.map((item) => {
               return <li key={item}>{item}</li>
             })}
-          </ul>
+          </ul> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
@@ -180,14 +250,14 @@ export default function Header() {
             >
               {isHeartClicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </IconButton>
-            <IconButton size="large" sx={{ color: 'white' }}>
+            <IconButton size="large" sx={{ color: '#523601dc' }}>
               <TranslateIcon />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+      {/* {renderMobileMenu}
+      {renderMenu} */}
     </Box>
   )
 }

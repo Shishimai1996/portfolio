@@ -79,7 +79,7 @@ const Skill = () => {
       <Box sx={{ width: '100%', margin: '5%' }}>
         <Grid container rowSpacing={9} columnSpacing={{ xs: 1, sm: 2, md: 9 }}>
           <Grid item xs={6} md={6}>
-            <h2>Programming Language</h2>
+            <h2 id="language">Programming Language</h2>
             <Stack
               direction="row"
               spacing={3}
@@ -135,7 +135,7 @@ const Skill = () => {
             </Stack>
           </Grid>
           <Grid item xs={6} md={5}>
-            <h2>Framework</h2>
+            <h2 id="framework">Framework</h2>
             <Stack
               direction="row"
               spacing={2}
@@ -191,7 +191,7 @@ const Skill = () => {
             </Stack>
           </Grid>
           <Grid item xs={6} md={6}>
-            <h2>Design Tool</h2>
+            <h2 id="design">Design Tool</h2>
             <Stack
               direction="row"
               spacing={2}
@@ -214,7 +214,7 @@ const Skill = () => {
             </Stack>
           </Grid>
           <Grid item xs={6} md={5}>
-            <h2>Development Tool</h2>
+            <h2 id="development">Development Tool</h2>
             <Stack
               direction="row"
               spacing={2}
