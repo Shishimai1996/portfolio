@@ -6,14 +6,13 @@ import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import InputBase from '@mui/material/InputBase'
-import MenuItem from '@mui/material/MenuItem'
-import Menu from '@mui/material/Menu'
+// import MenuItem from '@mui/material/MenuItem'
+// import Menu from '@mui/material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import TranslateIcon from '@mui/icons-material/Translate'
 import { useEffect, useState } from 'react'
-import sakura from '../image/sakura.jpg'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -59,21 +58,21 @@ interface HeaderComponentProps {
 }
 
 export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null)
+  // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+  // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+  //   React.useState<null | HTMLElement>(null)
   const [isHeartClicked, setIsHeartClicked] = useState(false)
-  const isMenuOpen = Boolean(anchorEl)
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
+  // const isMenuOpen = Boolean(anchorEl)
+  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null)
-  }
+  // const handleMobileMenuClose = () => {
+  //   setMobileMoreAnchorEl(null)
+  // }
 
-  const handleMenuClose = () => {
-    setAnchorEl(null)
-    handleMobileMenuClose()
-  }
+  // const handleMenuClose = () => {
+  //   setAnchorEl(null)
+  //   handleMobileMenuClose()
+  // }
 
   const [search, setSearch] = useState<string>('')
   const [debouncedValue, setDebouncedValue] = useState(search)
