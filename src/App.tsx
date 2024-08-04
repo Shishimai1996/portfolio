@@ -17,31 +17,12 @@ function App() {
     return () => clearTimeout(timer)
   }, [])
   const [tabIndex, setTabIndex] = useState<number>(0)
-  // const getTabIndex = (search: string | null) => {
-  //   if (search == 'profile') {
-  //     return 0
-  //   }
-  //   if (search == 'skill') {
-  //     return 1
-  //   }
-  //   if (search == 'work') {
-  //     return 2
-  //   }
-  //   if (search == 'resume') {
-  //     return 3
-  //   }
-  //   return 0
-  // }
+
   const handleValueChange = (value: number) => {
     console.log(value)
     setTabIndex(value)
   }
-  // Parse the URL to get query parameters
-  // const urlParams = new URLSearchParams(window.location.search)
 
-  // Access specific query parameters
-  // const search = urlParams.get('search')
-  // console.log(search)
   return (
     <div className="App">
       <header>
@@ -55,7 +36,6 @@ function App() {
             <div className="text-overlay">H e l l o !</div>
           </Grow>
         </div>
-        <p>color</p>
         <Page tabIndex={tabIndex} />
       </body>
     </div>

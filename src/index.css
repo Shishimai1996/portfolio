@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+p {
+  font-family: 'Zain', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+h5 {
+  font-family: 'Zain', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h4 {
+  font-family: 'Zain', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h3 {
+  font-family: 'Zain', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h2 {
+  font-family: 'Zain', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'Zain', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
