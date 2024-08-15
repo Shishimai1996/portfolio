@@ -50,21 +50,21 @@
 }
 
 .text-overlay {
-  position: absolute;
-  top: 35%;
+  position: fixed;
+  top: 0%;
   left: 35%;
-  transform: translate(-50%, -50%);
+  transform: translate(-10%, -10%);
   color: #f9e1f6bb;
   font-size: 7em;
   font-weight: 800;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
-h1 {
+/* h1 {
   color: #c0c5c2;
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
-p {
+/* p {
   color: #7a7d7c;
-}
+} */

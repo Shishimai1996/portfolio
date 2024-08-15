@@ -4,7 +4,7 @@ import './App.css'
 import Page from './page'
 import sakura from '../src/image/sakura.jpg'
 import { Header } from './component/header'
-import { Grow } from '@mui/material'
+import { Box, Grow } from '@mui/material'
 
 function App() {
   const [showHello, setShowHello] = useState(false)
@@ -33,7 +33,9 @@ function App() {
           <img src={sakura} className="sakura" alt="sakura" />
 
           <Grow in={showHello} timeout={1000} unmountOnExit>
-            <div className="text-overlay">H e l l o !</div>
+            <Box className="text-overlay">
+              <h2>H e l l o !</h2>
+            </Box>
           </Grow>
         </div>
         <Page tabIndex={tabIndex} />
