@@ -58,15 +58,17 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
           onChange={handleChange}
           centered
           aria-label="basic tabs example"
-          TabIndicatorProps={{ style: { backgroundColor: '#eb76dbc5' } }}
+          TabIndicatorProps={{ style: { backgroundColor: '#720acec5' } }}
         >
           <Tab
             label="Profile"
             {...a11yProps(0)}
             sx={{
-              color: '#eb76dbc5',
+              color: '#720acec5',
+              fontFamily: 'Zain, sans-serif',
               '&.Mui-selected': {
-                color: '#eb76dbc5',
+                color: '#720acec5',
+                fontFamily: 'Zain, sans-serif',
               },
             }}
           />
@@ -74,9 +76,11 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
             label="Skill"
             {...a11yProps(1)}
             sx={{
-              color: '#eb76dbc5',
+              color: '#720acec5',
+              fontFamily: 'Zain, sans-serif',
               '&.Mui-selected': {
-                color: '#eb76dbc5',
+                color: '#720acec5',
+                fontFamily: 'Zain, sans-serif',
               },
             }}
           />
@@ -84,9 +88,11 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
             label="Work"
             {...a11yProps(2)}
             sx={{
-              color: '#eb76dbc5',
+              color: '#720acec5',
+              fontFamily: 'Zain, sans-serif',
               '&.Mui-selected': {
-                color: '#eb76dbc5',
+                color: '#720acec5',
+                fontFamily: 'Zain, sans-serif',
               },
             }}
           />
@@ -94,9 +100,11 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
             label="resume"
             {...a11yProps(3)}
             sx={{
-              color: '#eb76dbc5',
+              color: '#720acec5',
+              fontFamily: 'Zain, sans-serif',
               '&.Mui-selected': {
-                color: '#eb76dbc5',
+                color: '#720acec5',
+                fontFamily: 'Zain, sans-serif',
               },
             }}
           />

@@ -20,7 +20,8 @@ export default function Resume() {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            padding: '50px',
+            justifyContent: 'space-between',
+            padding: '30px',
           }}
         >
           <Stack
@@ -30,7 +31,7 @@ export default function Resume() {
             spacing={5}
           >
             <Stack direction="column" spacing={1} sx={{ alignItems: 'center' }}>
-              <h3>Mai Shimizu</h3>
+              <h2>Mai Shimizu</h2>
               <h4>Frontend Engineer</h4>
             </Stack>
             <Stack
@@ -40,7 +41,7 @@ export default function Resume() {
                 alignItems: 'center',
               }}
             >
-              <SchoolIcon sx={{ color: '#eb76dbc5' }} />
+              <SchoolIcon sx={{ color: '#720acec5' }} />
               <p>Sugiyama University</p>
               <p>2015-2019</p>
               <p>Cross-Culture studies</p>
