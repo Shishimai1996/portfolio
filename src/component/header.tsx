@@ -32,23 +32,24 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     {
       label: 'Skill',
       keys: [
-        'abilities',
-        'expertise',
-        'competencies',
-        'proficiencies',
-        'capabilities',
+        'Abilities',
+        'Expertise',
+        'Competencies',
+        'Proficiencies',
+        'Capabilities',
       ],
       page: 0,
     },
     {
       label: 'Work',
       keys: [
-        'projects',
-        'job',
-        'pieces',
-        'creations', //
-        'examples',
-        'portfolio items',
+        'Work Style',
+        'Projects',
+        'Job',
+        'Pieces',
+        'Creations', //
+        'Examples',
+        'Portfolio Items',
       ],
       page: 2,
     },
@@ -90,7 +91,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     },
     {
       label: 'Language',
-      keys: ['scripting', 'technologies', 'frameworks'], //framework
+      keys: ['scripting', 'technologies'],
       page: 1,
     },
     {
@@ -152,18 +153,16 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
   }, [search])
 
   useEffect(() => {
+    //after the user put something in the search field, this will return the page number which matches searchList and filled words.
     const result = searchList.find((item) => {
-      // return (
-      //   item.keys.includes(debouncedValue.toLowerCase()) ||
-      //   item.label.toLowerCase() === debouncedValue.toLowerCase()
-      // )
       return (
         item.keys.find((item) => item.includes(debouncedValue.toLowerCase())) ||
         item.label.toLowerCase().includes(debouncedValue.toLowerCase())
       )
     })
+
     const page = result ? result.page : undefined
-    // const searchValue = searchList[debouncedValue as keyof typeof searchList]
+
     if (page !== undefined) {
       console.log(page)
       onValueChange(page)
@@ -189,46 +188,21 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         }}
       >
         <Toolbar>
-          <Typography
-            variant="h5"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            Portfolio
-          </Typography>
+          <h1>Portfolio</h1>
+
           <Box sx={{ width: 300, ml: 10, color: '#523601dc' }}>
             <Autocomplete
-              // filterOptions={(options, state) => {
-              //   const searchedInput = state.inputValue
-              //   if (searchedInput === '') {
-              //     return searchList.map((option) => option.label)
-              //   }
-
-              //   const result: string[] = []
-              //   searchList.forEach((item) => {
-              //     if (
-              //       item.keys.find((item) =>
-              //         item.includes(searchedInput.toLowerCase())
-              //       ) ||
-              //       item.label
-              //         .toLowerCase()
-              //         .includes(searchedInput.toLowerCase())
-              //     ) {
-              //       result.push(item.label)
-              //     }
-              //   })
-
-              //   return result
-              // }}
               filterOptions={(options, state) => {
+                //user put something in the search field.
                 const searchedInput = state.inputValue
+                //if the user do not put anything in the search field, it shows list.
                 if (searchedInput === '') {
                   return searchList.map((option) => option.label)
                 }
 
                 const result: string[] = []
                 searchList.forEach((item) => {
+                  //if searchList label item includes search input from users, add it to the result array
                   if (
                     item.label
                       .toLowerCase()
@@ -236,15 +210,35 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                   ) {
                     result.push(item.label)
                   }
-                  const searchedItem = item.keys.find((item) =>
-                    item.toLowerCase().includes(searchedInput.toLowerCase())
-                  )
-                  if (searchedItem) {
-                    result.push(`${item.label} (${searchedItem})`)
+
+                  // //if searchList keys includes search input, add it to the result array.
+                  const searchedItem = item.keys.find((item) => {
+                    return item
+                      .toLowerCase()
+                      .includes(searchedInput.toLowerCase())
+                  })
+                  if (searchedItem != undefined) {
+                    //result.push(`${item.label} (${searchedItem})`)
+                    result.push(searchedItem)
                   }
+
+                  // if the keys words starts with search input
+                  // const searchedItem = item.keys.find((item) => {
+                  //   //console.log({ item, searchedInput })
+
+                  //   const res = item.split(' ').filter((splitItem) => {
+                  //     //console.log({ splitItem, searchedInput })
+
+                  //     return splitItem
+                  //       .toLowerCase()
+                  //       .startsWith(searchedInput.toLowerCase())
+                  //   })
+
+                  //   return result.length != 0
+                  // })
                 })
 
-                return result
+                return result.sort()
               }}
               freeSolo
               id="free-solo-2-demo"
