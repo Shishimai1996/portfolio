@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
   const searchList: Search[] = [
     {
       label: 'Profile',
-      keys: ['bio', 'summary', 'overview', 'background'], //summary
+      keys: ['bio', 'overview', 'background'],
       page: 0,
     },
     {
@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         'Projects',
         'Job',
         'Pieces',
-        'Creations', //
+        'Creations',
         'Examples',
         'Portfolio Items',
       ],
@@ -96,20 +96,14 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     },
     {
       label: 'Framework',
-      keys: ['library', 'toolkit', 'Platform', 'architecture', 'system'],
+      keys: ['library', 'toolkit', 'architecture', 'system'],
       page: 1,
     },
-    { label: 'Design tool', keys: ['graphics tool', 'creative tool'], page: 1 }, //tool
+    { label: 'Design tool', keys: ['graphics tool', 'creative tool'], page: 1 },
 
     {
       label: 'Development',
-      keys: [
-        'engineering',
-        'creation', //creation
-        'construction',
-        'build',
-        'implementation',
-      ],
+      keys: ['engineering', 'construction', 'build', 'implementation'],
       page: 1,
     },
     {
@@ -117,7 +111,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
       keys: [
         'dashboard',
         'visualization tool',
-        'analytics platform', //platform
+        'analytics platform',
         'reporting tool',
       ],
       page: 2,
@@ -127,7 +121,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
       keys: [
         'graph',
         'diagram',
-        'plot', //plo
+        'plot',
         'visualization',
         'figure',
         'data representation',
