@@ -1,14 +1,13 @@
-import * as React from 'react'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import TranslateIcon from '@mui/icons-material/Translate'
+import { Autocomplete, TextField } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import TranslateIcon from '@mui/icons-material/Translate'
+import Toolbar from '@mui/material/Toolbar'
+import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { Autocomplete, TextField } from '@mui/material'
 
 interface HeaderComponentProps {
   onValueChange: (value: number) => void

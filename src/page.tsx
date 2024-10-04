@@ -1,13 +1,12 @@
-import * as React from 'react'
 import Box from '@mui/material/Box'
-import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-import Typography from '@mui/material/Typography'
+import Tabs from '@mui/material/Tabs'
+import * as React from 'react'
+import { useEffect } from 'react'
 import Profile from './component/profile'
+import Resume from './component/resume'
 import Skill from './component/skill'
 import Work from './component/work'
-import Resume from './component/resume'
-import { useEffect } from 'react'
 
 interface TabPanelProps {
   children?: React.ReactNode
