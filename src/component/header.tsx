@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         'Proficiencies',
         'Capabilities',
       ],
-      page: 0,
+      page: 1,
     },
     {
       label: 'Work',
