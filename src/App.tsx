@@ -21,7 +21,6 @@ function App() {
 
   //get the page number from the page.tsx and set it to the page controller
   const handleValueChange = (value: number) => {
-    console.log(value)
     setTabIndex(value)
   }
 

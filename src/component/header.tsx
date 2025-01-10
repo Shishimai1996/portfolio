@@ -157,10 +157,9 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     const page = result ? result.page : undefined
 
     if (page !== undefined) {
-      console.log(page)
       onValueChange(page)
     } else {
-      console.log('Value not found in searchList')
+      console.error('Value not found in searchList')
     }
   }, [debouncedValue, onValueChange])
 

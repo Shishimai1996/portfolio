@@ -20,7 +20,7 @@ export default function Resume() {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            justifyContent: 'space-evenly',
             padding: '30px',
           }}
         >
@@ -28,7 +28,7 @@ export default function Resume() {
             sx={{
               alignItems: 'flex-start',
             }}
-            spacing={5}
+            spacing={3}
           >
             <Stack direction="column" spacing={1} sx={{ alignItems: 'center' }}>
               <h2>Mai Shimizu</h2>

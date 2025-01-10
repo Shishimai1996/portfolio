@@ -1,27 +1,30 @@
 import React from 'react'
-import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import ButtonBase from '@mui/material/ButtonBase'
 import Typography from '@mui/material/Typography'
-import reactTypescript from '../image/reactTypescript.png'
-import grafana from '../image/grafana.png'
+import { styled } from '@mui/material/styles'
 import chartJs from '../image/chartJs.png'
+import grafana from '../image/grafana.png'
+import reactTypescript from '../image/reactTypescript.png'
 
 const images = [
   {
     url: reactTypescript,
     title: 'React x Typescript',
     width: '50%',
+    link: 'https://shishimai1996.github.io/eCommerce-Website/',
   },
   {
     url: grafana,
     title: 'Grafana',
     width: '50%',
+    link: '',
   },
   {
     url: chartJs,
     title: 'Chart.js',
     width: '50%',
+    link: '',
   },
 ]
 
@@ -89,49 +92,55 @@ const ImageMarked = styled('span')(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
 }))
 
+const handleClickWork = (link: string) => {
+  window.location.href = link
+}
 export default function Work() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'column',
-        alignItems: 'center',
-        minWidth: 300,
-        width: '100%',
-        margin: '30px',
-      }}
-    >
-      {images.map((image) => (
-        <ImageButton
-          focusRipple
-          key={image.title}
-          style={{
-            width: image.width,
-            margin: '10px',
-          }}
-        >
-          <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: 'relative',
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                fontFamily: 'Zain, sans-serif',
-              }}
-            >
-              {image.title}
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
-        </ImageButton>
-      ))}
-    </Box>
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'column',
+          alignItems: 'center',
+          minWidth: 300,
+          width: '100%',
+          margin: '30px',
+        }}
+      >
+        {images.map((image) => (
+          <ImageButton
+            focusRipple
+            key={image.title}
+            style={{
+              width: image.width,
+              margin: '10px',
+            }}
+            onClick={() => handleClickWork(image.link)}
+          >
+            <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+            <ImageBackdrop className="MuiImageBackdrop-root" />
+            <Image>
+              <Typography
+                component="span"
+                variant="subtitle1"
+                color="inherit"
+                sx={{
+                  position: 'relative',
+                  p: 4,
+                  pt: 2,
+                  pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                  fontFamily: 'Zain, sans-serif',
+                }}
+              >
+                {image.title}
+                <ImageMarked className="MuiImageMarked-root" />
+              </Typography>
+            </Image>
+          </ImageButton>
+        ))}
+      </Box>
+    </>
   )
 }
