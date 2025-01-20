@@ -1,133 +1,46 @@
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import TranslateIcon from '@mui/icons-material/Translate'
-import { Autocomplete, TextField } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+
+import {
+  Autocomplete,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  TextField,
+  Typography,
+} from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { searchList } from '../lib/constants/searchWords'
+import { HeartButton } from './heartButton'
+import { TranslationButton } from './translationButton'
+import { menuButton } from '../lib/constants/menuButton'
 
 interface HeaderComponentProps {
   onValueChange: (value: number) => void
 }
 
 export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
+  const { t } = useTranslation()
   const [isHeartClicked, setIsHeartClicked] = useState(false)
   const [search, setSearch] = useState<string>('')
   const [debouncedValue, setDebouncedValue] = useState(search)
-  interface Search {
-    label: string
-    keys: string[]
-    page: number
-  }
-  const searchList: Search[] = [
-    {
-      label: 'Profile',
-      keys: ['bio', 'overview', 'background'],
-      page: 0,
-    },
-    {
-      label: 'Skill',
-      keys: [
-        'Abilities',
-        'Expertise',
-        'Competencies',
-        'Proficiencies',
-        'Capabilities',
-      ],
-      page: 1,
-    },
-    {
-      label: 'Work',
-      keys: [
-        'Work Style',
-        'Projects',
-        'Job',
-        'Pieces',
-        'Creations',
-        'Examples',
-        'Portfolio Items',
-      ],
-      page: 2,
-    },
-    {
-      label: 'Resume',
-      keys: [
-        'cv',
-        'career summary',
-        'professional history',
-        'employment record',
-      ],
-      page: 3,
-    },
-    {
-      label: 'Contact address',
-      keys: [
-        'get in touch',
-        'reach out',
-        'connect',
-        'contact information',
-        'inquiries',
-      ],
-      page: 0,
-    },
-    {
-      label: 'About me',
-      keys: ['about', 'me', 'introduction', 'personal statement'],
-      page: 0,
-    },
-    {
-      label: 'Programming',
-      keys: [
-        'coding',
-        'software development',
-        'software engineering',
-        'application development',
-      ],
-      page: 1,
-    },
-    {
-      label: 'Language',
-      keys: ['scripting', 'technologies'],
-      page: 1,
-    },
-    {
-      label: 'Framework',
-      keys: ['library', 'toolkit', 'architecture', 'system'],
-      page: 1,
-    },
-    { label: 'Design tool', keys: ['graphics tool', 'creative tool'], page: 1 },
+  const [openMenu, setOpenMenu] = useState(false)
 
-    {
-      label: 'Development',
-      keys: ['engineering', 'construction', 'build', 'implementation'],
-      page: 1,
-    },
-    {
-      label: 'Grafana',
-      keys: [
-        'dashboard',
-        'visualization tool',
-        'analytics platform',
-        'reporting tool',
-      ],
-      page: 2,
-    },
-    {
-      label: 'Chart',
-      keys: [
-        'graph',
-        'diagram',
-        'plot',
-        'visualization',
-        'figure',
-        'data representation',
-      ],
-      page: 2,
-    },
-  ]
+  const { i18n } = useTranslation()
+
+  const handleLanguageToggle = () => {
+    const newLanguage = i18n.language === 'en' ? 'ja' : 'en'
+    i18n.changeLanguage(newLanguage).catch((error) => {
+      console.error('Language change error:', error)
+    })
+  }
 
   const handleInputChange = (
     event: React.SyntheticEvent<Element, Event>,
@@ -170,6 +83,10 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     }, 400)
   }
 
+  const handleOpenMenu = () => {
+    setOpenMenu((prev) => !prev)
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -180,7 +97,18 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         }}
       >
         <Toolbar>
-          <h1>Portfolio</h1>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={handleOpenMenu}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          <Typography variant="h3">{t('portfolio')}</Typography>
 
           <Box sx={{ width: 300, ml: 10, color: '#523601dc' }}>
             <Autocomplete
@@ -210,24 +138,8 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                       .includes(searchedInput.toLowerCase())
                   })
                   if (searchedItem != undefined) {
-                    //result.push(`${item.label} (${searchedItem})`)
                     result.push(searchedItem)
                   }
-
-                  // if the keys words starts with search input
-                  // const searchedItem = item.keys.find((item) => {
-                  //   //console.log({ item, searchedInput })
-
-                  //   const res = item.split(' ').filter((splitItem) => {
-                  //     //console.log({ splitItem, searchedInput })
-
-                  //     return splitItem
-                  //       .toLowerCase()
-                  //       .startsWith(searchedInput.toLowerCase())
-                  //   })
-
-                  //   return result.length != 0
-                  // })
                 })
 
                 return result.sort()
@@ -253,10 +165,13 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                     '& .MuiInputBase-input': {
                       color: '#523601dc',
                     },
+                    '& .MuiInputLabel-root': {
+                      fontSize: '1.5rem',
+                    },
                   }}
                   InputLabelProps={{
                     sx: {
-                      top: '-5px', // Adjust this value to align the label
+                      top: '-8px', // Adjust this value to align the label
                     },
                   }}
                   InputProps={{
@@ -269,18 +184,57 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              sx={{ color: isHeartClicked ? 'red' : 'inherit' }}
-              onClick={handleClickHeart}
-            >
-              {isHeartClicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-            </IconButton>
-            <IconButton size="large" sx={{ color: '#523601dc' }}>
-              <TranslateIcon />
-            </IconButton>
+            <HeartButton
+              isHeartClicked={isHeartClicked}
+              handleClickHeart={handleClickHeart}
+            />
+            <TranslationButton handleLanguageToggle={handleLanguageToggle} />
           </Box>
         </Toolbar>
+        {openMenu && (
+          <Box
+            sx={{
+              width: '100%',
+              maxWidth: 300,
+              bgcolor: 'background.paper',
+              position: 'absolute',
+              top: '64px',
+              left: 0,
+              boxShadow: 3,
+              zIndex: 9999,
+            }}
+          >
+            <nav aria-label="main mailbox folders">
+              <List>
+                {menuButton.map((item, index) => {
+                  const ButtonComponent = item.Component
+                  return (
+                    <ListItem disablePadding key={index}>
+                      <ListItemButton
+                        onClick={() => {
+                          if (item.title === 'like') {
+                            handleClickHeart()
+                          } else if (item.title === 'translate') {
+                            handleLanguageToggle()
+                          }
+                          setOpenMenu(false)
+                        }}
+                      >
+                        <ListItemIcon>
+                          <ButtonComponent
+                            isHeartClicked={isHeartClicked}
+                            handleClickHeart={handleClickHeart}
+                          />
+                        </ListItemIcon>
+                        <ListItemText primary={t(item.title)} />
+                      </ListItemButton>
+                    </ListItem>
+                  )
+                })}
+              </List>
+            </nav>
+          </Box>
+        )}
       </AppBar>
     </Box>
   )

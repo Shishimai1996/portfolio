@@ -1,0 +1,14 @@
+{
+  "hello": "こんにちは",
+  "portfolio": "ポートフォリオ",
+  "aboutMe": "自己紹介",
+  "describeMyself": "私はフロントエンジニアです。2022年8月からソフトウェア業界でキャリアをスタートさせました。",
+  "hobby": "私は異文化を学ぶことが好きです。",
+  "contact": "問い合わせ先",
+  "programmingLanguage": "プログラミング言語",
+  "frameWork": "フレームワーク",
+  "designTool": "デザインツール",
+  "developmentTool": "開発ツール",
+  "like": "いいね",
+  "translate": "言語切替"
+}

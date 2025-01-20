@@ -7,6 +7,7 @@ import Profile from './component/profile'
 import Resume from './component/resume'
 import Skill from './component/skill'
 import Work from './component/work'
+import { Typography } from '@mui/material'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -27,7 +28,7 @@ function CustomTabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <h5>{children}</h5>
+          <Typography variant="h1">{children}</Typography>
         </Box>
       )}
     </div>
@@ -64,10 +65,10 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
             {...a11yProps(0)}
             sx={{
               color: '#720acec5',
-              fontFamily: 'Zain, sans-serif',
               '&.Mui-selected': {
                 color: '#720acec5',
                 fontFamily: 'Zain, sans-serif',
+                fontSize: '1.2rem',
               },
             }}
           />
@@ -80,6 +81,7 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
               '&.Mui-selected': {
                 color: '#720acec5',
                 fontFamily: 'Zain, sans-serif',
+                fontSize: '1.2rem',
               },
             }}
           />
@@ -92,6 +94,7 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
               '&.Mui-selected': {
                 color: '#720acec5',
                 fontFamily: 'Zain, sans-serif',
+                fontSize: '1.2rem',
               },
             }}
           />
@@ -104,6 +107,8 @@ const Page = ({ tabIndex }: { tabIndex: number }) => {
               '&.Mui-selected': {
                 color: '#720acec5',
                 fontFamily: 'Zain, sans-serif',
+
+                fontSize: '1.2rem',
               },
             }}
           />

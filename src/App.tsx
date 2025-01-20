@@ -4,9 +4,14 @@ import './App.css'
 import Page from './page'
 import sakura from '../src/image/sakura.jpg'
 import { Header } from './component/header'
-import { Box, Grow } from '@mui/material'
+import { Box, Grow, Typography } from '@mui/material'
+import { useTranslation } from 'react-i18next'
+import './i18n'
+import { ThemeProviderWrapper } from './ThemeProviderWrapper'
 
 function App() {
+  const { t } = useTranslation()
+
   const [showHello, setShowHello] = useState(false)
 
   useEffect(() => {
@@ -25,23 +30,25 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header>
-        <Header onValueChange={handleValueChange} />
-      </header>
-      <body>
-        <div className="img-container">
-          <img src={sakura} className="sakura" alt="sakura" />
+    <ThemeProviderWrapper>
+      <div className="App">
+        <header>
+          <Header onValueChange={handleValueChange} />
+        </header>
+        <main>
+          <div className="img-container">
+            <img src={sakura} className="sakura" alt="sakura" />
 
-          <Grow in={showHello} timeout={1000} unmountOnExit>
-            <Box className="text-overlay">
-              <h2>H e l l o !</h2>
-            </Box>
-          </Grow>
-        </div>
-        <Page tabIndex={tabIndex} />
-      </body>
-    </div>
+            <Grow in={showHello} timeout={1000} unmountOnExit>
+              <Box className="text-overlay">
+                <Typography variant="h1">{t('hello')}</Typography>
+              </Box>
+            </Grow>
+          </div>
+          <Page tabIndex={tabIndex} />
+        </main>
+      </div>
+    </ThemeProviderWrapper>
   )
 }
 

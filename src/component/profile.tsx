@@ -1,11 +1,13 @@
-import { Stack, Avatar, Box, Paper, Grow } from '@mui/material'
+import { Stack, Avatar, Box, Paper, Grow, Typography } from '@mui/material'
 import * as React from 'react'
 import { useEffect } from 'react'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import Link from '@mui/material/Link'
+import { useTranslation } from 'react-i18next'
 
 const Profile = () => {
+  const { t } = useTranslation()
   const [showProfile, setShowProfile] = React.useState(false)
 
   useEffect(() => {
@@ -40,8 +42,10 @@ const Profile = () => {
               justifyContent: 'center',
             }}
           >
-            <Paper elevation={3}>
-              <h1 id="about">About Me</h1>
+            <Paper elevation={3} sx={{ p: 5 }}>
+              <Typography variant="h5" id="about">
+                {t('aboutMe')}
+              </Typography>
               <Stack
                 direction="row"
                 spacing={3}
@@ -56,11 +60,8 @@ const Profile = () => {
                   sx={{ width: 56, height: 56 }}
                 />
                 <Stack direction="column" spacing={2} alignItems={'flex-start'}>
-                  <p>
-                    I am frontend engineer from Japan. I started carrier in this
-                    industry since August, 2022.
-                  </p>
-                  <p>I am passionate about leaning cultural differences.</p>
+                  <Typography variant="body1">{t('describeMyself')}</Typography>
+                  <Typography variant="body1">{t('hobby')}</Typography>
                 </Stack>
               </Stack>
             </Paper>
@@ -85,8 +86,10 @@ const Profile = () => {
               marginBottom: '20px',
             }}
           >
-            <Paper elevation={3}>
-              <h1 id="contact">Contact address</h1>
+            <Paper elevation={3} sx={{ p: 5 }}>
+              <Typography variant="h5" id="contact">
+                {t('contact')}
+              </Typography>
               <Stack
                 direction="row"
                 spacing={3}
@@ -109,6 +112,7 @@ const Profile = () => {
                   justifyContent={'center'}
                 >
                   <Link
+                    variant="h5"
                     href="https://github.com/Shishimai1996"
                     underline="always"
                   >
@@ -116,6 +120,7 @@ const Profile = () => {
                   </Link>
 
                   <Link
+                    variant="h5"
                     href="https://www.linkedin.com/in/mai-shimizu-73b2892a8/"
                     underline="always"
                   >

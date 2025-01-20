@@ -51,20 +51,10 @@
 
 .text-overlay {
   position: absolute;
-  top: 0%;
-  left: 35%;
+  top: 40%;
+  left: 38%;
   transform: translate(-10%, -10%);
   color: #584535c5;
   font-size: 7em;
   font-weight: 800;
-  /* font-family: Arial, Helvetica, sans-serif; */
 }
-
-/* h1 {
-  color: #c0c5c2;
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* p {
-  color: #7a7d7c;
-} */
