@@ -39,7 +39,12 @@ function App() {
         </header>
         <main>
           <div className="img-container">
-            <Image src={sakura} className="sakura" alt="sakura" />
+            <Image
+              src={sakura}
+              className="sakura"
+              alt="sakura"
+              priority={true}
+            />
 
             <Grow in={showHello} timeout={1000} unmountOnExit>
               <Box className="text-overlay">

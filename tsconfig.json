@@ -24,12 +24,13 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "./*"
       ],
       "@assets/*": [
-        "./src/assets/*"
+        "./assets/*"
       ]
-    }
+    },
+    "baseUrl": "src"
   },
   "include": [
     "next-env.d.ts",
