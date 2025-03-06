@@ -6,8 +6,10 @@ import Paper from "@mui/material/Paper";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
 import { Divider, Stack, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function Resume() {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -34,8 +36,8 @@ export default function Resume() {
             spacing={3}
           >
             <Stack direction="column" spacing={1} sx={{ alignItems: "center" }}>
-              <Typography variant="h5">Mai Shimizu</Typography>
-              <Typography variant="body2">Frontend Engineer</Typography>
+              <Typography variant="h5">{t("name")}</Typography>
+              <Typography variant="body2">{t("frontendEngineer")}</Typography>
             </Stack>
             <Stack
               direction="column"
@@ -45,9 +47,9 @@ export default function Resume() {
               }}
             >
               <SchoolIcon sx={{ color: "#720acec5" }} />
-              <Typography variant="body2">Sugiyama University</Typography>
+              <Typography variant="body2">{t("university")}</Typography>
               <Typography variant="body2">2015-2019</Typography>
-              <Typography variant="body2">Cross-Culture studies</Typography>
+              <Typography variant="body2">{t("subject")}</Typography>
             </Stack>
           </Stack>
           <Divider orientation="vertical" flexItem sx={{ margin: "20px" }} />
@@ -59,18 +61,13 @@ export default function Resume() {
             }}
           >
             <WorkIcon />
-            <Typography variant="body1">AISIN Co.</Typography>
-            <Typography variant="body1">2019/4~ current</Typography>
-            <Typography variant="body1">
-              Work as an assistant for reducing ECU costs projects of vehicle
-              components.
-            </Typography>
+            <Typography variant="body1">{t("company")}</Typography>
+            <Typography variant="body1">{t("workYear")}</Typography>
+            <Typography variant="body1">{t("jobContent")}</Typography>
             <WorkIcon />
-            <Typography variant="body1">Woven by Toyota. Inc</Typography>
+            <Typography variant="body1">{t("woven")}</Typography>
             <Typography variant="body1">2022/8 - 2024/12</Typography>
-            <Typography variant="body1">
-              Work as an associate engineer for the Inventor support division.
-            </Typography>
+            <Typography variant="body1">{t("engineer")}</Typography>
           </Stack>
         </Box>
       </Paper>

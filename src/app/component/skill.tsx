@@ -58,7 +58,6 @@ const Skill = () => {
                         alt={item.alt}
                         width={item.style}
                         height={50}
-                        // style={{ width: item.style, height: "3%" }}
                         aria-owns={open ? "mouse-over-popover" : undefined}
                         aria-haspopup="true"
                         onMouseEnter={handlePopoverOpen}

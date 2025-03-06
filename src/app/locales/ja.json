@@ -10,5 +10,21 @@
   "designTool": "デザインツール",
   "developmentTool": "開発ツール",
   "like": "いいね",
-  "translate": "言語切替"
+  "name": "清水 舞",
+  "frontendEngineer": "フロントエンドエンジニア",
+  "university": "椙山大学",
+  "subject": "国際コミュニケーション学部",
+  "company": "株式会社アイシン",
+  "workYear": "2019/4~ 現在",
+  "jobContent": "一般職として車載向けECUの原価低減活動で働く",
+  "woven":"ウーブンバイトヨタ",
+  "engineer": "エンジニアとして発明家用のウェブサイト開発で働く",
+  "search": "検索",
+  "tabs": {
+    "translate": "言語切替",
+    "profile": "プロフィール",
+    "skill": "スキル",
+    "work": "仕事",
+    "resume": "経歴"
+  }
 }

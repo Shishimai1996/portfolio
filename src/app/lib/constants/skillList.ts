@@ -1,14 +1,3 @@
-import figma from "@assets/image/figma.svg";
-import react from "@assets/image/react.jpg";
-import html from "@assets/image/html.png";
-import css from "@assets/image/css.png";
-import express from "@assets/image/express.png";
-import github from "@assets/image/github.png";
-import javascript from "@assets/image/javascript.png";
-import next from "@assets/image/next.png";
-import node from "@assets/image/node.png";
-import typescript from "@assets/image/typescript.png";
-import vscode from "@assets/image/vscode.png";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 interface ISkillList {
   id: string;

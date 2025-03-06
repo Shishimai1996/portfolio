@@ -4,13 +4,11 @@ import { Box, Grow, Typography } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import sakura from "@assets/image/sakura.jpg";
 import "./App.css";
 import { ThemeProviderWrapper } from "./ThemeProviderWrapper";
 import { Header } from "./component/header";
 import TabSetting from "./component/tabs";
 import "./i18n";
-import nextConfig from "../../next.config.mjs";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function App() {

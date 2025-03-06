@@ -1,13 +1,9 @@
 "use client";
 
-import React from "react";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
-import chartJs from "@assets/image/chartJs.png";
-import grafana from "@assets/image/grafana.png";
-import reactTypescript from "@assets/image/reactTypescript.png";
 import Image from "next/image";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

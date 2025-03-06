@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Search"
+                  label={t("search")}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       width: "250px",

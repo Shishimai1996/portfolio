@@ -10,5 +10,21 @@
   "designTool": "Design Tool",
   "developmentTool": "Development Tool",
   "like": "Like",
-  "translate": "Language Exchange"
+  "translate": "Language Exchange",
+  "name": "Mai Shimizu",
+  "frontendEngineer": "Frontend Engineer",
+  "university": "Sugiyama University",
+  "subject": "Cross-Culture studies",
+  "company": "AISIN Co.",
+  "workYear": "2019/4~ current",
+  "jobContent": " Work as an assistant for reducing ECU costs projects of vehicle components.",
+  "woven":"Woven by Toyota. Inc",
+  "engineer": " Work as an associate engineer for the Inventor support division.",
+  "search": "Search",
+  "tabs": {
+    "profile": "Profile",
+    "skill": "Skill",
+    "work": "Work",
+    "resume": "Resume"
+  }
 }
