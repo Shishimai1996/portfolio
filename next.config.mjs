@@ -1,6 +1,6 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
-export default {
+const nextConfig = {
   reactStrictMode: true,
   output: "export",
   images: {
@@ -12,3 +12,5 @@ export default {
   //   appDir: true,
   // },
 };
+
+export default nextConfig

@@ -10,6 +10,8 @@ import { ThemeProviderWrapper } from "./ThemeProviderWrapper";
 import { Header } from "./component/header";
 import TabSetting from "./component/tabs";
 import "./i18n";
+import nextConfig from "../../next.config.mjs";
+const BASE_PATH = nextConfig.basePath;
 
 function App() {
   const { t } = useTranslation();
@@ -40,7 +42,7 @@ function App() {
         <main>
           <div className="img-container">
             <Image
-              src={sakura}
+              src={`${BASE_PATH}/${sakura}`}
               className="sakura"
               alt="sakura"
               priority={true}
