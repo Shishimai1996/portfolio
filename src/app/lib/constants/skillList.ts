@@ -9,7 +9,7 @@ import next from "@assets/image/next.png";
 import node from "@assets/image/node.png";
 import typescript from "@assets/image/typescript.png";
 import vscode from "@assets/image/vscode.png";
-
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 interface ISkillList {
   id: string;
   title: string;
@@ -18,7 +18,7 @@ interface ISkillList {
     tabIndex: number;
     date: string;
     alt: string;
-    style: string;
+    style: number;
   }[];
 }
 export const skillList: ISkillList[] = [
@@ -27,32 +27,32 @@ export const skillList: ISkillList[] = [
     title: "programmingLanguage",
     items: [
       {
-        src: html,
+        src: `${BASE_PATH}/assets/image/html.png`,
         tabIndex: 0,
         date: "2022-08-01",
         alt: "HTML",
-        style: "10%",
+        style: 50,
       },
       {
-        src: css,
+        src: `${BASE_PATH}/assets/image/css.png`,
         tabIndex: 1,
         date: "2022-08-01",
         alt: "CSS",
-        style: "6.3%",
+        style: 40,
       },
       {
-        src: javascript,
+        src: `${BASE_PATH}/assets/image/javascript.png`,
         tabIndex: 2,
         date: "2022-08-01",
         alt: "Javascript",
-        style: "7%",
+        style: 50,
       },
       {
-        src: typescript,
+        src: `${BASE_PATH}/assets/image/typescript.png`,
         tabIndex: 3,
         date: "2023-02-01",
         alt: "Typescript",
-        style: "7%",
+        style: 50,
       },
     ],
   },
@@ -61,32 +61,32 @@ export const skillList: ISkillList[] = [
     title: "frameWork",
     items: [
       {
-        src: react,
+        src: `${BASE_PATH}/assets/image/react.jpg`,
         tabIndex: 4,
         date: "2023-02-01",
         alt: "React.js",
-        style: "9%",
+        style: 50,
       },
       {
-        src: next,
+        src: `${BASE_PATH}/assets/image/next.png`,
         tabIndex: 5,
         date: "2023-03-01",
         alt: "Next.js",
-        style: "7%",
+        style: 50,
       },
       {
-        src: node,
+        src: `${BASE_PATH}/assets/image/node.png`,
         tabIndex: 6,
         date: "2023-03-01",
         alt: "Node.js",
-        style: "7%",
+        style: 50,
       },
       {
-        src: express,
+        src: `${BASE_PATH}/assets/image/express.png`,
         tabIndex: 7,
         date: "2024-01-01",
         alt: "Express.js",
-        style: "7%",
+        style: 50,
       },
     ],
   },
@@ -95,11 +95,11 @@ export const skillList: ISkillList[] = [
     title: "designTool",
     items: [
       {
-        src: figma,
+        src: `${BASE_PATH}/assets/image/figma.svg`,
         tabIndex: 8,
         date: "2022-10-01",
         alt: "Figma",
-        style: "5%",
+        style: 50,
       },
     ],
   },
@@ -108,18 +108,18 @@ export const skillList: ISkillList[] = [
     title: "developmentTool",
     items: [
       {
-        src: vscode,
+        src: `${BASE_PATH}/assets/image/vscode.png`,
         tabIndex: 9,
         date: "2022-08-01",
         alt: "Visual Studio Code",
-        style: "6%",
+        style: 50,
       },
       {
-        src: github,
+        src: `${BASE_PATH}/assets/image/github.png`,
         tabIndex: 10,
         date: "2022-08-01",
         alt: "Github",
-        style: "7%",
+        style: 50,
       },
     ],
   },

@@ -8,6 +8,9 @@ const nextConfig = {
   },
   basePath: isProduction ? "/portfolio" : "", // 本番環境でのみ basePath を適用
   assetPrefix: isProduction ? "/portfolio" : "", // 本番環境でのみ assetPrefix を適用
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProduction ? "/portfolio" : ""
+  }
   // experimental: {
   //   appDir: true,
   // },

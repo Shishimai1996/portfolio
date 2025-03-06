@@ -11,7 +11,7 @@ import { Header } from "./component/header";
 import TabSetting from "./component/tabs";
 import "./i18n";
 import nextConfig from "../../next.config.mjs";
-const BASE_PATH = nextConfig.basePath;
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function App() {
   const { t } = useTranslation();
@@ -42,10 +42,12 @@ function App() {
         <main>
           <div className="img-container">
             <Image
-              src={`${BASE_PATH}/${sakura}`}
+              src={`${BASE_PATH}/assets/image/sakura.jpg`}
               className="sakura"
               alt="sakura"
               priority={true}
+              width={500}
+              height={300}
             />
 
             <Grow in={showHello} timeout={1000} unmountOnExit>

@@ -9,22 +9,23 @@ import chartJs from "@assets/image/chartJs.png";
 import grafana from "@assets/image/grafana.png";
 import reactTypescript from "@assets/image/reactTypescript.png";
 import Image from "next/image";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const images = [
   {
-    url: reactTypescript,
+    url: `${BASE_PATH}/assets/image/reactTypescript.png`,
     title: "React x Typescript",
     width: "50%",
     link: "https://shishimai1996.github.io/eCommerce-Website/",
   },
   {
-    url: grafana,
+    url: `${BASE_PATH}/assets/image/grafana.png`,
     title: "Grafana",
     width: "50%",
     link: "",
   },
   {
-    url: chartJs,
+    url: `${BASE_PATH}/assets/image/chartJs.png`,
     title: "Chart.js",
     width: "50%",
     link: "",
