@@ -1,8 +1,7 @@
 "use client";
 
 import { Stack, Avatar, Box, Paper, Grow, Typography } from "@mui/material";
-import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "@mui/material/Link";
@@ -10,24 +9,27 @@ import { useTranslation } from "react-i18next";
 
 const Profile = () => {
   const { t } = useTranslation();
-  const [showProfile, setShowProfile] = React.useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+const profileRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > 100) {
-        // スクロール量が100ピクセルを超えたらPaperを表示
-        setShowProfile(true);
-      } else {
-        setShowProfile(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowProfile(entry.isIntersecting)
+      },
+      {
+        threshold: 0.2
       }
-    };
+    )
+    if(profileRef.current){
+      observer.observe(profileRef.current)
+    }
+    return()=>{
+      if(profileRef.current){
+        observer.unobserve(profileRef.current)
+      }
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   const data = [
@@ -51,7 +53,7 @@ const Profile = () => {
     },
   ];
   return (
-    <Box sx={{ height: 180 }}>
+    <Box sx={{ height: 180 }} ref={profileRef}>
       <Box
         sx={{
           display: "flex",

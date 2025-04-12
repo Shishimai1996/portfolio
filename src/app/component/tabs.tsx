@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Profile from "./profile";
 import Resume from "./resume";
 import Skill from "./skill";
@@ -48,7 +48,7 @@ function a11yProps(index: number) {
 const TabSetting = ({ tabIndex }: { tabIndex: number }) => {
   const { t, i18n } = useTranslation();
   const isReady = i18n.isInitialized;
-  const [value, setValue] = React.useState(tabIndex);
+  const [value, setValue] = useState(tabIndex);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };

@@ -12,10 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Box sx={{ width: "100%" }}>
-        <body>{children}</body>
-      </Box>
+    <html lang="en">   
+      <body>
+        <Box sx={{ width: "100%" }}> {children}</Box>
+      </body>  
     </html>
   );
 }
