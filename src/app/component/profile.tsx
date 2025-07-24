@@ -68,7 +68,7 @@ const Profile = () => {
             >
               <Avatar
                 alt="Remy Sharp"
-                src="/favicon.png"
+                src="/cat.png"
                 sx={{ width: 56, height: 56 }}
               />
               <Stack direction="column" spacing={2}>
