@@ -54,7 +54,7 @@ const Profile = () => {
               // visibility: showProfile ? "visible" : "hidden",
             }}
           >
-            <Typography variant="body1" id="about">
+            <Typography variant="body1" id="about" sx={{ m: 2 }}>
               {t("aboutMe")}
             </Typography>
             <Stack
