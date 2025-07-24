@@ -9,6 +9,7 @@ import { ThemeProviderWrapper } from "./ThemeProviderWrapper";
 import { Header } from "./component/header";
 import TabSetting from "./component/tabs";
 import "./i18n";
+import HelloOverlay from "./component/hello";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function App() {
@@ -38,22 +39,35 @@ function App() {
           <Header onValueChange={handleValueChange} />
         </header>
         <main>
-          <div className="img-container">
-            <Image
+          {/* <div className="img-container"> */}
+          {/* <Image
               src={`${BASE_PATH}/assets/image/sakura.jpg`}
               className="sakura"
               alt="sakura"
               priority={true}
               width={500}
               height={300}
-            />
-
-            <Grow in={showHello} timeout={1000} unmountOnExit>
-              <Box className="text-overlay">
-                <Typography variant="h1">{t("hello")}</Typography>
-              </Box>
-            </Grow>
-          </div>
+              style={{ width: "100%", height: "auto" }}
+            /> */}
+          <HelloOverlay />
+          {/* <Grow in={showHello} timeout={1000} unmountOnExit>
+            <Box className="text-overlay">
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: {
+                    xs: "2rem", // スマホ
+                    sm: "3rem", // タブレット
+                    md: "4rem", // PC
+                    lg: "5rem", // 大画面
+                  },
+                }}
+              >
+                {t("hello")}
+              </Typography>
+            </Box>
+          </Grow> */}
+          {/* </div> */}
           <TabSetting tabIndex={tabIndex} />
         </main>
       </Box>

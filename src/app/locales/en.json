@@ -26,5 +26,19 @@
     "skill": "Skill",
     "work": "Work",
     "resume": "Resume"
-  }
+  },
+  "Profile": "Profile",
+  "Skill": "Skill",
+  "Work": "Work",
+  "Resume": "Resume",
+  "Contact address": "Contact address",
+  "About me": "About me",
+  "Programming": "Programming",
+  "Language": "Language",
+  "Framework": "Framework",
+  "Design tool": "Design tool",
+  "Development": "Development",
+  "Grafana": "Grafana",
+  "Chart": "Chart",
+  "search": "search"
 }

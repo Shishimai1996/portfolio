@@ -29,11 +29,7 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography variant="h1">{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -77,13 +73,25 @@ const TabSetting = ({ tabIndex }: { tabIndex: number }) => {
 
   return (
     <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "#dcdfd3" }}>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "#dcdfd3",
+          width: {
+            xs: "100%", // スマホ
+            sm: "90%", // タブレット
+            md: "70%", // PC
+            lg: "50%", // 大画面
+          },
+          mx: "auto",
+        }}
+      >
         <Tabs
           value={value}
           onChange={handleChange}
           centered
           aria-label="basic tabs example"
-          TabIndicatorProps={{ style: { backgroundColor: "#720acec5" } }}
+          TabIndicatorProps={{ style: { backgroundColor: "#050009c5" } }}
         >
           {tabs.map((tab, index) => (
             <Tab
@@ -91,9 +99,9 @@ const TabSetting = ({ tabIndex }: { tabIndex: number }) => {
               label={isReady ? t(tab.label) : tab.label}
               {...a11yProps(index)}
               sx={{
-                color: "#720acec5",
+                color: "#050009c5",
                 "&.Mui-selected": {
-                  color: "#720acec5",
+                  color: "#050009c5",
                   fontFamily: "Zain, sans-serif",
                   fontSize: "1.2rem",
                 },

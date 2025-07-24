@@ -11,19 +11,25 @@ const images = [
   {
     url: `${BASE_PATH}/assets/image/reactTypescript.png`,
     title: "React x Typescript",
-    width: "50%",
+    width: "20%",
     link: "https://shishimai1996.github.io/eCommerce-Website/",
   },
+  // {
+  //   url: `${BASE_PATH}/assets/image/grafana.png`,
+  //   title: "Grafana",
+  //   width: "40%",
+  //   link: "",
+  // },
   {
-    url: `${BASE_PATH}/assets/image/grafana.png`,
-    title: "Grafana",
-    width: "50%",
-    link: "",
+    url: `${BASE_PATH}/assets/image/next-JS-framework.png`,
+    title: "Next x API app",
+    width: "20%",
+    link: "https://unsplash-ad8gxniii-maishis-projects.vercel.app/",
   },
   {
     url: `${BASE_PATH}/assets/image/chartJs.png`,
     title: "Chart.js",
-    width: "50%",
+    width: "40%",
     link: "",
   },
 ];
@@ -33,7 +39,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
   height: 200,
   [theme.breakpoints.down("sm")]: {
     width: "100% !important",
-    height: 100,
+    height: 90,
   },
   "&:hover, &.Mui-focusVisible": {
     zIndex: 1,
@@ -77,6 +83,7 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
   right: 0,
   top: 0,
   bottom: 0,
+  borderRadius: "10px",
   backgroundColor: theme.palette.common.black,
   opacity: 0.3,
   transition: theme.transitions.create("opacity"),
@@ -101,21 +108,29 @@ export default function Work() {
       <Box
         sx={{
           display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "column",
+          flexDirection: { md: "row", xs: "column" },
           alignItems: "center",
-          minWidth: 300,
-          width: "100%",
-          margin: "30px",
+          justifyContent: "center",
+          gap: 2,
+          // flexWrap: "wrap",
+          maxWidth: { md: "800px", xs: "300px" },
+          margin: "0 auto",
+          p: "30px 16px",
+          // minWidth: 200,
+          // borderRadius: "10px",
+          // width: "100%",
+          // alignContent: "center",
         }}
       >
         {images.map((image) => (
           <ImageButton
             focusRipple
             key={image.title}
-            style={{
-              width: image.width,
+            sx={{
+              width: { xs: 90, sm: 250, md: 300 },
+              height: "100px",
               margin: "10px",
+              borderRadius: "10px",
             }}
             onClick={() => handleClickWork(image.link)}
             aria-label={image.title}

@@ -3,13 +3,11 @@
 import MenuIcon from "@mui/icons-material/Menu";
 
 import {
-  Autocomplete,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  TextField,
   Typography,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -17,12 +15,13 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { menuButton } from "../lib/constants/menuButton";
 import { searchList } from "../lib/constants/searchWords";
 import { HeartButton } from "./heartButton";
+import { Search } from "./search";
 import { TranslationButton } from "./translationButton";
-import { menuButton } from "../lib/constants/menuButton";
 
 interface HeaderComponentProps {
   onValueChange: (value: number) => void;
@@ -89,14 +88,40 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     setOpenMenu((prev) => !prev);
   };
 
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const searchRef = useRef<HTMLDivElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) && //if clicked part is not inside of element
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node) && //close menu if outside of search is clicked
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
+        setOpenMenu(false);
+      }
+    };
+    if (openMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openMenu]);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
         sx={{
-          color: "#523601dc",
+          color: "#000000dc",
           backgroundColor: "#f2f6f9",
           width: "100%",
+          height: "65px",
         }}
       >
         <Toolbar
@@ -107,7 +132,8 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
           }}
         >
           <IconButton
-            size="large"
+            ref={menuButtonRef}
+            size="small"
             edge="start"
             color="inherit"
             aria-label="menu"
@@ -118,81 +144,8 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
           </IconButton>
 
           <Typography variant="h3">{t("portfolio")}</Typography>
-
-          <Box sx={{ width: 300, ml: 10, color: "#523601dc" }}>
-            <Autocomplete
-              filterOptions={(options, state) => {
-                //user put something in the search field.
-                const searchedInput = state.inputValue;
-                //if the user do not put anything in the search field, it shows list.
-                if (searchedInput === "") {
-                  return searchList.map((option) => option.label);
-                }
-
-                const result: string[] = [];
-                searchList.forEach((item) => {
-                  //if searchList label item includes search input from users, add it to the result array
-                  if (
-                    item.label
-                      .toLowerCase()
-                      .includes(searchedInput.toLowerCase())
-                  ) {
-                    result.push(item.label);
-                  }
-
-                  // //if searchList keys includes search input, add it to the result array.
-                  const searchedItem = item.keys.find((item) => {
-                    return item
-                      .toLowerCase()
-                      .includes(searchedInput.toLowerCase());
-                  });
-                  if (searchedItem != undefined) {
-                    result.push(searchedItem);
-                  }
-                });
-
-                return result.sort();
-              }}
-              freeSolo
-              id="free-solo-2-demo"
-              disableClearable
-              options={[""]} //will be handled by filterOptions
-              onChange={handleInputChange}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label={t("search")}
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      width: "250px",
-                      height: "40px",
-                      padding: "0",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#523601dc",
-                    },
-                    "& .MuiInputBase-input": {
-                      color: "#523601dc",
-                    },
-                    "& .MuiInputLabel-root": {
-                      fontSize: "1.5rem",
-                    },
-                  }}
-                  InputLabelProps={{
-                    sx: {
-                      top: "-8px", // Adjust this value to align the label
-                    },
-                  }}
-                  InputProps={{
-                    ...params.InputProps,
-                    type: "search",
-                  }}
-                />
-              )}
-            />
-          </Box>
-          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Search handleInputChange={handleInputChange} />
             <HeartButton
               isHeartClicked={isHeartClicked}
               handleClickHeart={handleClickHeart}
@@ -202,10 +155,11 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         </Toolbar>
         {openMenu && (
           <Box
+            ref={menuRef}
             sx={{
               width: "100%",
               maxWidth: 300,
-              bgcolor: "background.paper",
+              backgroundColor: "#f2f6f9",
               position: "absolute",
               top: "64px",
               left: 0,
@@ -229,7 +183,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                           setOpenMenu(false);
                         }}
                       >
-                        <ListItemIcon>
+                        <ListItemIcon sx={{ pointerEvents: "none" }}>
                           <ButtonComponent
                             isHeartClicked={isHeartClicked}
                             handleClickHeart={handleClickHeart}
@@ -241,6 +195,9 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                     </ListItem>
                   );
                 })}
+                <Box ref={searchRef}>
+                  <Search handleInputChange={handleInputChange} />
+                </Box>
               </List>
             </nav>
           </Box>

@@ -7,8 +7,12 @@ import { skillList } from "../lib/constants/skillList";
 import { Popover } from "./popover";
 import { useState } from "react";
 import Image from "next/image";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const Skill = () => {
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
@@ -37,7 +41,11 @@ const Skill = () => {
                   alignItems: "center",
                 }}
               >
-                <Typography variant="h3" id="language">
+                <Typography
+                  variant={isMdUp ? "h4" : "h5"}
+                  id="language"
+                  sx={{ textAlign: "center", fontWeight: "bold" }}
+                >
                   {t(skill.title)}
                 </Typography>
                 <Stack
