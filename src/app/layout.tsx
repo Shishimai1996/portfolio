@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ width: "100%" }}>
-      <body style={{ width: "100%", margin: 0, padding: 0 }}>{children}</body>
+    <html lang="en">
+      <body>
+        <Box sx={{ width: "100%" }}> {children}</Box>
+      </body>
     </html>
   );
 }

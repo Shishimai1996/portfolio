@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Popover as MUIPopover, Typography } from "@mui/material";
 
 export const Popover = ({
@@ -16,6 +15,7 @@ export const Popover = ({
   open: boolean;
   handlePopoverClose: () => void;
 }) => {
+
   if (!open || !anchorEl) return null;
 
   const currentDate: Date = new Date();

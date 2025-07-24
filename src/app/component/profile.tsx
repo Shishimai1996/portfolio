@@ -1,8 +1,7 @@
 "use client";
 
 import { Stack, Avatar, Box, Paper, Grow, Typography } from "@mui/material";
-import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "@mui/material/Link";
@@ -13,35 +12,30 @@ const Profile = () => {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const { t } = useTranslation();
-  const [showProfile, setShowProfile] = useState(true);
-  console.log("showProfile", showProfile);
-  // useEffect(() => {
-  //   console.log("useEffect called");
-  //   if (typeof window !== "undefined") {
-  //     const handleScroll = () => {
-  //       console.log("scrollY:", window.scrollY);
-  //       if (window.scrollY > 1) {
-  //         console.log("true");
-  //         // スクロール量が100ピクセルを超えたらPaperを表示
-  //         setShowProfile(true);
-  //       } else {
-  //         console.log("false");
+  const [showProfile, setShowProfile] = useState(false);
+  const profileRef = useRef<HTMLDivElement | null>(null);
 
-  //         setShowProfile(false);
-  //       }
-  //     };
-  //     console.log("ada", window.addEventListener);
-
-  //     window.addEventListener("scroll", handleScroll);
-  //     window.scrollTo(0, 100);
-  //     return () => {
-  //       window.removeEventListener("scroll", handleScroll);
-  //     };
-  //   }
-  // }, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowProfile(entry.isIntersecting);
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+    if (profileRef.current) {
+      observer.observe(profileRef.current);
+    }
+    return () => {
+      if (profileRef.current) {
+        observer.unobserve(profileRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <Box sx={{ height: "100vh" }}>
+    <Box sx={{ height: 180 }} ref={profileRef}>
       <Box
         sx={{
           display: "flex",

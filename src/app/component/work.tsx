@@ -5,6 +5,8 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const images = [
@@ -99,10 +101,12 @@ const ImageMarked = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-const handleClickWork = (link: string) => {
-  window.location.href = link;
-};
+
 export default function Work() {
+  const router = useRouter()
+const handleClickWork = (link: string) => {
+  router.push(link)
+};
   return (
     <>
       <Box
@@ -142,9 +146,8 @@ export default function Work() {
             <Image
               src={image.url}
               alt={image.title}
-              layout="fill"
-              objectFit="cover"
-              style={{ borderRadius: "10px" }}
+              fill
+              style={{ borderRadius: "10px",objectFit:"cover" }}
             />
             <ImageBackdrop className="MuiImageBackdrop-root" />
             <ImageF aria-hidden="true">
