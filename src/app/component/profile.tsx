@@ -9,6 +9,8 @@ import { useTranslation } from "react-i18next";
 import { useTheme, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const Profile = () => {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
@@ -73,7 +75,7 @@ const Profile = () => {
                 sx={{ width: 56, height: 56 }}
               /> */}
               <Image
-                src={"/cat.png"}
+                src={`${basePath}/cat.png`}
                 alt={"Remy Sharp"}
                 width={56}
                 height={56}
