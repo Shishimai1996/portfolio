@@ -77,6 +77,13 @@ export const skillList: ISkillList[] = [
         alt: "Express.js",
         style: 50,
       },
+      {
+        src: `${BASE_PATH}/assets/image/nest.svg`,
+        tabIndex: 8,
+        date: "2024-01-01",
+        alt: "nest.js",
+        style: 50,
+      },
     ],
   },
   {
@@ -85,7 +92,7 @@ export const skillList: ISkillList[] = [
     items: [
       {
         src: `${BASE_PATH}/assets/image/figma.svg`,
-        tabIndex: 8,
+        tabIndex: 9,
         date: "2022-10-01",
         alt: "Figma",
         style: 50,
@@ -98,16 +105,23 @@ export const skillList: ISkillList[] = [
     items: [
       {
         src: `${BASE_PATH}/assets/image/vscode.png`,
-        tabIndex: 9,
+        tabIndex: 10,
         date: "2022-08-01",
         alt: "Visual Studio Code",
         style: 50,
       },
       {
         src: `${BASE_PATH}/assets/image/github.png`,
-        tabIndex: 10,
+        tabIndex: 11,
         date: "2022-08-01",
         alt: "Github",
+        style: 50,
+      },
+      {
+        src: `${BASE_PATH}/assets/image/jira.webp`,
+        tabIndex: 12,
+        date: "2022-08-01",
+        alt: "Jira",
         style: 50,
       },
     ],
