@@ -7,6 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "@mui/material/Link";
 import { useTranslation } from "react-i18next";
 import { useTheme, useMediaQuery } from "@mui/material";
+import Image from "next/image";
 
 const Profile = () => {
   const theme = useTheme();
@@ -66,10 +67,16 @@ const Profile = () => {
                 alignItems: "center",
               }}
             >
-              <Avatar
+              {/* <Avatar
                 alt="Remy Sharp"
                 src="/cat.png"
                 sx={{ width: 56, height: 56 }}
+              /> */}
+              <Image
+                src={"/cat.png"}
+                alt={"Remy Sharp"}
+                width={56}
+                height={56}
               />
               <Stack direction="column" spacing={2}>
                 <Typography variant="body2" sx={{ textAlign: "left" }}>
