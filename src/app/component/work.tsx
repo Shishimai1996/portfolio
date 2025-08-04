@@ -32,7 +32,7 @@ const images = [
     url: `${BASE_PATH}/assets/image/chartJs.png`,
     title: "Chart.js",
     width: "40%",
-    link: "",
+    link: "https://shishimai1996.github.io/chartJs/",
   },
 ];
 
@@ -101,12 +101,11 @@ const ImageMarked = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-
 export default function Work() {
-  const router = useRouter()
-const handleClickWork = (link: string) => {
-  router.push(link)
-};
+  const router = useRouter();
+  const handleClickWork = (link: string) => {
+    router.push(link);
+  };
   return (
     <>
       <Box
@@ -147,7 +146,7 @@ const handleClickWork = (link: string) => {
               src={image.url}
               alt={image.title}
               fill
-              style={{ borderRadius: "10px",objectFit:"cover" }}
+              style={{ borderRadius: "10px", objectFit: "cover" }}
             />
             <ImageBackdrop className="MuiImageBackdrop-root" />
             <ImageF aria-hidden="true">
