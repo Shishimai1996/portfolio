@@ -34,6 +34,12 @@ const images = [
     width: "40%",
     link: "https://shishimai1996.github.io/chartJs/",
   },
+  {
+    url: `${BASE_PATH}/assets/image/weatherapp.png`,
+    title: "OpenWeather API",
+    width: "40%",
+    link: "https://shishimai1996.github.io/weatherApp/",
+  },
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
