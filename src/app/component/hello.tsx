@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { Box, Fade, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import SplitText from "../../components/SplitText";
 
 export default function HelloOverlay() {
   const [visible, setVisible] = useState(false);
@@ -11,7 +12,7 @@ export default function HelloOverlay() {
 
   useEffect(() => {
     // 1秒後に表示
-    const showTimer = setTimeout(() => setVisible(true), 500);
+    const showTimer = setTimeout(() => setVisible(true), 10);
 
     // 4秒後に非表示
     const hideTimer = setTimeout(() => setVisible(false), 3000);
@@ -30,16 +31,31 @@ export default function HelloOverlay() {
           top: 0,
           left: 0,
           zIndex: 1300, // MUIのModalより上
-          width: "100vw",
-          height: "100vh",
+          width: "100%",
+          height: "100%",
           backdropFilter: "blur(10px)",
-          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          backgroundColor: "rgba(255, 255, 255, 0.849)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Typography
+        <SplitText
+          tag="h1"
+          text={t("hello")}
+          className="hello-text text-black"
+          delay={100}
+          duration={0.6}
+          ease="power3.out"
+          splitType="chars"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          rootMargin="-100px"
+          textAlign="center"
+          // onLetterAnimationComplete={handleAnimationComplete}
+        />
+        {/* <Typography
           variant="h1"
           sx={{
             color: "#000000dc",
@@ -52,7 +68,7 @@ export default function HelloOverlay() {
           }}
         >
           {t("hello")}
-        </Typography>
+        </Typography> */}
       </Box>
     </Fade>
   );

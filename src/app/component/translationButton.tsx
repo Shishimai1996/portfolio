@@ -12,7 +12,7 @@ export const TranslationButton = ({
   return (
     <IconButton
       size="large"
-      sx={{ color: "#000000dc" }}
+      sx={{ color: "#ffffffdc" }}
       onClick={handleLanguageToggle}
     >
       <TranslateIcon />

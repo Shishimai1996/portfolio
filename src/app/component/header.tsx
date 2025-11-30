@@ -8,7 +8,6 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Typography,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -22,6 +21,7 @@ import { searchList } from "../lib/constants/searchWords";
 import { HeartButton } from "./heartButton";
 import { Search } from "./search";
 import { TranslationButton } from "./translationButton";
+import ShinyText from "../../components/ShinyText";
 
 interface HeaderComponentProps {
   onValueChange: (value: number) => void;
@@ -60,6 +60,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
   }, [search]);
 
   useEffect(() => {
+    if (!debouncedValue.trim()) return;
     //after the user put something in the search field, this will return the page number which matches searchList and filled words.
     const result = searchList.find((item) => {
       return (
@@ -67,7 +68,6 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         item.label.toLowerCase().includes(debouncedValue.toLowerCase())
       );
     });
-
     const page = result ? result.page : undefined;
 
     if (page !== undefined) {
@@ -114,12 +114,14 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
   }, [openMenu]);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <>
       <AppBar
-        position="static"
+        position="fixed"
         sx={{
-          color: "#000000dc",
-          backgroundColor: "#f2f6f9",
+          color: "#ffffffdc",
+          backgroundColor: "#2424240",
+          borderRadius: 20,
+          borderColor: "2px solid #ffffff",
           width: "100%",
           height: "65px",
         }}
@@ -142,8 +144,13 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
           >
             <MenuIcon />
           </IconButton>
+          <ShinyText
+            text={t("portfolio")}
+            disabled={false}
+            speed={3}
+            className="custom-class"
+          />
 
-          <Typography variant="h3">{t("portfolio")}</Typography>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Search handleInputChange={handleInputChange} />
             <HeartButton
@@ -203,6 +210,6 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
           </Box>
         )}
       </AppBar>
-    </Box>
+    </>
   );
 };

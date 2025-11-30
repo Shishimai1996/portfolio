@@ -15,7 +15,6 @@ export const Popover = ({
   open: boolean;
   handlePopoverClose: () => void;
 }) => {
-
   if (!open || !anchorEl) return null;
 
   const currentDate: Date = new Date();
@@ -43,7 +42,7 @@ export const Popover = ({
       }}
       disableRestoreFocus
     >
-      <Typography variant="body1" sx={{ p: 1 }}>
+      <Typography variant="body1" sx={{ p: 1, bgcolor: "#ffffff58" }}>
         {label}: {countYear} year
         {countYear > 1 ? "s" : ""}
       </Typography>

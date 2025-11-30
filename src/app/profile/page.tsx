@@ -38,7 +38,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <Box sx={{ height: 10 }} ref={profileRef}>
+    <Box sx={{ height: 180 }} ref={profileRef}>
       <Box
         sx={{
           display: "flex",
@@ -54,7 +54,6 @@ const Profile = () => {
               p: { md: 5, xs: 3 },
               width: { md: "60%", xs: "90%" },
               textAlign: "center",
-              bgcolor: "#ffffff58",
               // visibility: showProfile ? "visible" : "hidden",
             }}
           >
@@ -104,7 +103,6 @@ const Profile = () => {
               width: { md: "60%", xs: "90%" },
               textAlign: "center",
               mt: 3,
-              bgcolor: "#ffffff58",
             }}
           >
             <Typography variant="body1" id="contact">

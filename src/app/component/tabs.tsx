@@ -9,7 +9,6 @@ import Profile from "./profile";
 import Resume from "./resume";
 import Skill from "./skill";
 import Work from "./work";
-import { Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 interface TabPanelProps {
@@ -41,7 +40,11 @@ function a11yProps(index: number) {
   };
 }
 
-const TabSetting = ({ tabIndex }: { tabIndex: number }) => {
+interface TabComponentProps {
+  tabIndex: number;
+}
+
+const TabSetting: React.FC<TabComponentProps> = ({ tabIndex }) => {
   const { t, i18n } = useTranslation();
   const isReady = i18n.isInitialized;
   const [value, setValue] = useState(tabIndex);
@@ -72,8 +75,8 @@ const TabSetting = ({ tabIndex }: { tabIndex: number }) => {
   ];
 
   return (
-    <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
-      <Box
+    <Box>
+      {/* <Box
         sx={{
           borderBottom: 1,
           borderColor: "#dcdfd3",
@@ -85,31 +88,31 @@ const TabSetting = ({ tabIndex }: { tabIndex: number }) => {
           },
           mx: "auto",
         }}
+      > */}
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        centered
+        aria-label="basic tabs example"
+        TabIndicatorProps={{ style: { backgroundColor: "#ebeaecc5" } }}
       >
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          centered
-          aria-label="basic tabs example"
-          TabIndicatorProps={{ style: { backgroundColor: "#050009c5" } }}
-        >
-          {tabs.map((tab, index) => (
-            <Tab
-              key={index}
-              label={isReady ? t(tab.label) : tab.label}
-              {...a11yProps(index)}
-              sx={{
-                color: "#050009c5",
-                "&.Mui-selected": {
-                  color: "#050009c5",
-                  fontFamily: "Zain, sans-serif",
-                  fontSize: "1.2rem",
-                },
-              }}
-            />
-          ))}
-        </Tabs>
-      </Box>
+        {tabs.map((tab, index) => (
+          <Tab
+            key={index}
+            label={isReady ? t(tab.label) : tab.label}
+            {...a11yProps(index)}
+            sx={{
+              color: "#ffffffc5",
+              "&.Mui-selected": {
+                color: "#ffffffc5",
+                fontFamily: "Zain, sans-serif",
+                fontSize: "1.2rem",
+              },
+            }}
+          />
+        ))}
+      </Tabs>
+      {/* </Box> */}
       {tabs.map((tab, index) => (
         <CustomTabPanel key={index} value={value} index={index}>
           {tab.component}

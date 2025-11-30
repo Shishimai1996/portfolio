@@ -40,6 +40,7 @@ export default function Resume() {
               justifyContent: "space-evenly",
               padding: "30px",
               gap: 3,
+              bgcolor: "#ffffff58",
             }}
           >
             <Stack

@@ -1,5 +1,8 @@
-import { Box } from "@mui/material";
+import "./globals.css";
 import type { Metadata } from "next";
+import { I18nProvider } from "./I18nProvider";
+import { ThemeProviderWrapper } from "./ThemeProviderWrapper";
+import AppWrapper from "./AppWrapper";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -12,9 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Box sx={{ width: "100%" }}> {children}</Box>
+    <html lang="en" className="dark">
+      <body className="bg-background">
+        <I18nProvider>
+          <ThemeProviderWrapper>
+            <AppWrapper>{children}</AppWrapper>
+          </ThemeProviderWrapper>
+        </I18nProvider>
       </body>
     </html>
   );

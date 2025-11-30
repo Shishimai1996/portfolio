@@ -44,7 +44,11 @@ const Skill = () => {
                 <Typography
                   variant={isMdUp ? "h4" : "h5"}
                   id="language"
-                  sx={{ textAlign: "center", fontWeight: "bold" }}
+                  sx={{
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    color: "#ffffff58",
+                  }}
                 >
                   {t(skill.title)}
                 </Typography>

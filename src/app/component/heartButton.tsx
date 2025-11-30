@@ -16,7 +16,7 @@ export const HeartButton = ({
     <>
       <IconButton
         size="large"
-        sx={{ color: isHeartClicked ? "red" : "#000000dc" }}
+        sx={{ color: isHeartClicked ? "red" : "#ffffffdc" }}
         onClick={handleClickHeart}
       >
         {isHeartClicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}

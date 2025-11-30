@@ -19,7 +19,7 @@ export const Search: React.FC<SearchComponentProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Box sx={{ width: 300, ml: 3, color: "#000000dc" }}>
+    <Box sx={{ width: 300, mt: 0.8, color: "#ffffff63" }}>
       <Autocomplete
         disablePortal
         filterOptions={(options, state) => {
@@ -58,26 +58,21 @@ export const Search: React.FC<SearchComponentProps> = ({
         renderInput={(params) => (
           <TextField
             {...params}
-            label={t("search")}
+            placeholder={t("search")}
             sx={{
               "& .MuiOutlinedInput-root": {
                 width: "250px",
                 height: "40px",
-                padding: "0",
               },
               "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#000000dc",
+                borderColor: "#ffffffdc",
               },
               "& .MuiInputBase-input": {
-                color: "#000000dc",
+                color: "#ffffffdc",
               },
-              "& .MuiInputLabel-root": {
-                fontSize: "1.5rem",
-              },
-            }}
-            InputLabelProps={{
-              sx: {
-                top: "-8px", // Adjust this value to align the label
+              "&::placeholder": {
+                color: "#ffffff",
+                opacity: 1,
               },
             }}
             InputProps={{

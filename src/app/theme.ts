@@ -2,17 +2,21 @@ import { createTheme } from "@mui/material/styles";
 
 export const themeEn = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: "#1976d2",
     },
     secondary: {
       main: "#9c27b0",
     },
+    background: {
+      default: "#121212",
+    },
   },
   typography: {
     fontFamily: "Zain, sans-serif",
     h1: {
-      fontSize: "9rem",
+      fontSize: "5rem",
       fontWeight: 900,
       lineHeight: 1.2,
       color: "#000000dc",
@@ -58,6 +62,7 @@ export const themeEn = createTheme({
 
 export const themeJa = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: "#1976d2",
     },
