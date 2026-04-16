@@ -110,17 +110,17 @@ export default function HelloOverlay() {
             threshold={0.1}
             rootMargin="-100px"
             textAlign="center"
-            style={{
-              background: "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              fontSize: "clamp(3rem, 10vw, 8rem)",
-              fontWeight: 800,
-              letterSpacing: "-2px",
-              lineHeight: 1.2,
-              margin: 0,
-            }}
+            // style={{
+            //   background: "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
+            //   backgroundClip: "text",
+            //   WebkitBackgroundClip: "text",
+            //   WebkitTextFillColor: "transparent",
+            //   fontSize: "clamp(3rem, 10vw, 8rem)",
+            //   fontWeight: 800,
+            //   letterSpacing: "-2px",
+            //   lineHeight: 1.2,
+            //   margin: 0,
+            // }}
           />
 
           {/* Decorative line */}
