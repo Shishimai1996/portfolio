@@ -89,14 +89,14 @@ export const Search: React.FC<SearchComponentProps> = ({
               },
             },
           },
-          input: {
-            ...undefined,
-            type: "search",
-          },
         }}
         renderInput={(params) => (
           <TextField
             {...params}
+            inputProps={{
+              ...params.inputProps,
+              type: "search",
+            }}
             placeholder={t("search")}
             sx={{
               "& .MuiOutlinedInput-root": {
