@@ -15,6 +15,7 @@ export default function Home() {
           width: "100%",
           height: "100vh",
           zIndex: -1,
+          pointerEvents: "none",
         }}
       >
         <Particles

@@ -1,6 +1,6 @@
 "use client";
 
-import { Popover as MUIPopover, Typography } from "@mui/material";
+import { Popover as MUIPopover, Typography, Box } from "@mui/material";
 
 export const Popover = ({
   label,
@@ -38,14 +38,61 @@ export const Popover = ({
       }}
       transformOrigin={{
         vertical: "top",
-        horizontal: "left",
+        horizontal: "center",
       }}
       disableRestoreFocus
+      PaperProps={{
+        sx: {
+          background:
+            "linear-gradient(135deg, rgba(209, 27, 241, 0.95) 0%, rgba(100, 200, 255, 0.95) 100%)",
+          backdropFilter: "blur(8px)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
+          borderRadius: "12px",
+          boxShadow:
+            "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 16px rgba(209, 27, 241, 0.3)",
+          animation: "fadeInScale 0.2s ease-out",
+          "@keyframes fadeInScale": {
+            "0%": {
+              opacity: 0,
+              transform: "scale(0.95)",
+            },
+            "100%": {
+              opacity: 1,
+              transform: "scale(1)",
+            },
+          },
+        },
+      }}
     >
-      <Typography variant="body1" sx={{ p: 1, bgcolor: "#ffffff58" }}>
-        {label}: {countYear} year
-        {countYear > 1 ? "s" : ""}
-      </Typography>
+      <Box
+        sx={{
+          px: 2.5,
+          py: 1.5,
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+        }}
+      >
+        <Typography
+          variant="body2"
+          sx={{
+            fontWeight: 600,
+            color: "#ffffff",
+            letterSpacing: "0.5px",
+          }}
+        >
+          {label}
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            fontWeight: 500,
+            color: "rgba(255, 255, 255, 0.85)",
+          }}
+        >
+          {countYear} year{countYear > 1 ? "s" : ""}
+        </Typography>
+      </Box>
     </MUIPopover>
   );
 };

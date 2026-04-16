@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
 
   const handleInputChange = (
     event: React.SyntheticEvent<Element, Event>,
-    value: string
+    value: string,
   ) => {
     setSearch(value);
   };
@@ -61,7 +61,6 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
 
   useEffect(() => {
     if (!debouncedValue.trim()) return;
-    //after the user put something in the search field, this will return the page number which matches searchList and filled words.
     const result = searchList.find((item) => {
       return (
         item.keys.find((item) => item.includes(debouncedValue.toLowerCase())) ||
@@ -96,9 +95,9 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         menuRef.current &&
-        !menuRef.current.contains(event.target as Node) && //if clicked part is not inside of element
+        !menuRef.current.contains(event.target as Node) &&
         searchRef.current &&
-        !searchRef.current.contains(event.target as Node) && //close menu if outside of search is clicked
+        !searchRef.current.contains(event.target as Node) &&
         menuButtonRef.current &&
         !menuButtonRef.current.contains(event.target as Node)
       ) {
@@ -117,13 +116,20 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
     <>
       <AppBar
         position="fixed"
+        elevation={0}
         sx={{
+          background:
+            "linear-gradient(135deg, rgba(20, 20, 40, 0.8) 0%, rgba(30, 20, 50, 0.8) 100%)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(209, 27, 241, 0.2)",
           color: "#ffffffdc",
-          backgroundColor: "#2424240",
-          borderRadius: 20,
-          borderColor: "2px solid #ffffff",
-          width: "100%",
-          height: "65px",
+          height: "70px",
+          boxShadow: "0 8px 32px rgba(209, 27, 241, 0.1)",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            boxShadow: "0 12px 48px rgba(209, 27, 241, 0.15)",
+            borderColor: "rgba(209, 27, 241, 0.3)",
+          },
         }}
       >
         <Toolbar
@@ -131,6 +137,8 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
             width: "100%",
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center",
+            px: { xs: 2, md: 4 },
           }}
         >
           <IconButton
@@ -139,11 +147,20 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2, display: { xs: "block", md: "none" } }}
+            sx={{
+              mr: 2,
+              display: { xs: "block", md: "none" },
+              transition: "all 0.3s ease",
+              "&:hover": {
+                transform: "scale(1.1)",
+                color: "#64c8ff",
+              },
+            }}
             onClick={handleOpenMenu}
           >
             <MenuIcon />
           </IconButton>
+
           <ShinyText
             text={t("portfolio")}
             disabled={false}
@@ -151,7 +168,13 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
             className="custom-class"
           />
 
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              gap: 2,
+              alignItems: "center",
+            }}
+          >
             <Search handleInputChange={handleInputChange} />
             <HeartButton
               isHeartClicked={isHeartClicked}
@@ -160,18 +183,33 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
             <TranslationButton handleLanguageToggle={handleLanguageToggle} />
           </Box>
         </Toolbar>
+
         {openMenu && (
           <Box
             ref={menuRef}
             sx={{
               width: "100%",
               maxWidth: 300,
-              backgroundColor: "#f2f6f9",
+              background:
+                "linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 20, 50, 0.95) 100%)",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(209, 27, 241, 0.2)",
               position: "absolute",
-              top: "64px",
+              top: "70px",
               left: 0,
-              boxShadow: 3,
+              boxShadow: "0 8px 32px rgba(209, 27, 241, 0.2)",
               zIndex: 9999,
+              animation: "slideDown 0.3s ease-out",
+              "@keyframes slideDown": {
+                "0%": {
+                  opacity: 0,
+                  transform: "translateY(-10px)",
+                },
+                "100%": {
+                  opacity: 1,
+                  transform: "translateY(0)",
+                },
+              },
             }}
           >
             <nav aria-label="main mailbox folders">
@@ -181,6 +219,14 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                   return (
                     <ListItem disablePadding key={index}>
                       <ListItemButton
+                        sx={{
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            background: "rgba(209, 27, 241, 0.1)",
+                            borderLeft: "3px solid rgba(209, 27, 241, 0.5)",
+                            pl: "calc(16px - 3px)",
+                          },
+                        }}
                         onClick={() => {
                           if (item.title === "like") {
                             handleClickHeart();
@@ -190,19 +236,29 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                           setOpenMenu(false);
                         }}
                       >
-                        <ListItemIcon sx={{ pointerEvents: "none" }}>
+                        <ListItemIcon
+                          sx={{ pointerEvents: "none", color: "#d11bf1cf" }}
+                        >
                           <ButtonComponent
                             isHeartClicked={isHeartClicked}
                             handleClickHeart={handleClickHeart}
                             handleLanguageToggle={handleLanguageToggle}
                           />
                         </ListItemIcon>
-                        <ListItemText primary={t(item.title)} />
+                        <ListItemText
+                          primary={t(item.title)}
+                          sx={{
+                            "& .MuiListItemText-primary": {
+                              color: "rgba(255, 255, 255, 0.9)",
+                              fontWeight: 500,
+                            },
+                          }}
+                        />
                       </ListItemButton>
                     </ListItem>
                   );
                 })}
-                <Box ref={searchRef}>
+                <Box ref={searchRef} sx={{ px: 2, py: 1 }}>
                   <Search handleInputChange={handleInputChange} />
                 </Box>
               </List>

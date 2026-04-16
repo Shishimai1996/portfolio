@@ -110,6 +110,11 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+html {
+  height: 100%;
+  overflow-y: auto;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -118,14 +123,15 @@
     @apply bg-background text-foreground;
     margin: 0;
     padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
 .hello-text span {
-  /* ここでフォントサイズを強制的に指定 */
   font-size: 8rem !important;
   font-weight: 700 !important;
-  /* レスポンシブ対応も可能 */
 }
 
 /* スマホ向け */

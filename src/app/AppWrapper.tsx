@@ -17,12 +17,19 @@ export default function AppWrapper({
   };
 
   return (
-    <>
+    <div style={{ minHeight: "100vh", position: "relative" }}>
       <header>
         <Header onValueChange={handleValueChange} />
       </header>
 
-      <main data-tab-index={tabIndex}>
+      <main
+        data-tab-index={tabIndex}
+        style={{
+          minHeight: "calc(100vh - 80px)", // headerの高さを引く
+          paddingTop: "80px", // header分のpadding
+          position: "relative",
+        }}
+      >
         {children}
 
         <HelloOverlay />
@@ -41,6 +48,6 @@ export default function AppWrapper({
           <TabSetting tabIndex={tabIndex} />
         </Box>
       </main>
-    </>
+    </div>
   );
 }

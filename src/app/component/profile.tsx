@@ -1,6 +1,6 @@
 "use client";
 
-import { Stack, Avatar, Box, Paper, Grow, Typography } from "@mui/material";
+import { Stack, Box, Paper, Grow, Typography, Container } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -25,7 +25,7 @@ const Profile = () => {
       },
       {
         threshold: 0.2,
-      }
+      },
     );
     if (profileRef.current) {
       observer.observe(profileRef.current);
@@ -38,118 +38,197 @@ const Profile = () => {
   }, []);
 
   return (
-    <Box sx={{ height: 10 }} ref={profileRef}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Grow in={showProfile} timeout={{ enter: 3000, exit: 500 }}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: { md: 5, xs: 3 },
-              width: { md: "60%", xs: "90%" },
-              textAlign: "center",
-              bgcolor: "#ffffff58",
-              // visibility: showProfile ? "visible" : "hidden",
-            }}
-          >
-            <Typography variant="body1" id="about" sx={{ m: 2 }}>
-              {t("aboutMe")}
-            </Typography>
-            <Stack
-              direction={isMdUp ? "row" : "column"}
-              spacing={3}
-              sx={{
-                // padding: "30px 50px ",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {/* <Avatar
-                alt="Remy Sharp"
-                src="/cat.png"
-                sx={{ width: 56, height: 56 }}
-              /> */}
-              <Image
-                src={`${basePath}/cat.png`}
-                alt={"Remy Sharp"}
-                width={56}
-                height={56}
-              />
-              <Stack direction="column" spacing={2}>
-                <Typography variant="body2" sx={{ textAlign: "left" }}>
-                  {t("describeMyself")}
-                </Typography>
-                <Typography variant="body2" sx={{ textAlign: "left" }}>
-                  {t("hobby")}
-                </Typography>
-              </Stack>
-            </Stack>
-          </Paper>
-        </Grow>
-        <Grow
-          in={showProfile}
-          style={{ transformOrigin: "0 0 0" }}
-          {...(showProfile ? { timeout: 3000 } : {})}
+    <Box
+      sx={{
+        width: "100%",
+        py: { xs: 6, md: 10 },
+        background:
+          "linear-gradient(135deg, rgba(209, 27, 241, 0.03) 0%, rgba(100, 200, 255, 0.03) 100%)",
+      }}
+      ref={profileRef}
+    >
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
-          <Paper
-            elevation={3}
-            sx={{
-              p: { md: 5, xs: 3 },
-              width: { md: "60%", xs: "90%" },
-              textAlign: "center",
-              mt: 3,
-              bgcolor: "#ffffff58",
-            }}
-          >
-            <Typography variant="body1" id="contact">
-              {t("contact")}
-            </Typography>
-            <Stack
-              direction="row"
-              spacing={3}
+          <Grow in={showProfile} timeout={1000}>
+            <Paper
+              elevation={0}
               sx={{
-                px: { xs: 0, md: 2 }, // 横 padding を responsive に抑える
-                py: 3,
-                justifyContent: "center",
-                alignItems: "center", // 縦揃えも追加すると綺麗
-                // flexWrap: "wrap", // 狭い画面でも折り返す
+                p: { md: 6, xs: 4 },
+                width: { md: "80%", xs: "100%" },
+                borderRadius: "20px",
+                backdropFilter: "blur(10px)",
+                background: "rgba(255, 255, 255, 0.02)",
+                border: "1px solid rgba(209, 27, 241, 0.1)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  background: "rgba(255, 255, 255, 0.04)",
+                  borderColor: "rgba(209, 27, 241, 0.2)",
+                  boxShadow: "0 8px 32px rgba(209, 27, 241, 0.1)",
+                },
               }}
             >
-              <Stack direction="column" spacing={2}>
-                <GitHubIcon sx={{ width: 40, height: 40 }} />
-                <LinkedInIcon sx={{ width: 40, height: 40 }} color="primary" />
-              </Stack>
-              <Stack direction="column" spacing={4} alignItems={"flex-start"}>
-                <Link
-                  variant="body2"
-                  href="https://github.com/Shishimai1996"
-                  underline="always"
+              <Stack
+                direction={isMdUp ? "row" : "column"}
+                spacing={{ xs: 3, md: 5 }}
+                alignItems={{ xs: "center", md: "flex-start" }}
+              >
+                {/* Avatar */}
+                <Box
                   sx={{
-                    wordBreak: "break-all", // 長いURLも折り返し
+                    position: "relative",
+                    flexShrink: 0,
                   }}
                 >
-                  {"https://github.com/Shishimai1996"}
-                </Link>
+                  <Box
+                    sx={{
+                      width: 120,
+                      height: 120,
+                      borderRadius: "50%",
+                      background:
+                        "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
+                      padding: "4px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Image
+                      src={`${basePath}/cat.png`}
+                      alt="profile"
+                      width={112}
+                      height={112}
+                      style={{
+                        borderRadius: "50%",
+                        display: "block",
+                      }}
+                    />
+                  </Box>
+                </Box>
 
-                <Link
-                  variant="body2"
-                  href="https://www.linkedin.com/in/mai-shimizu-73b2892a8/"
-                  underline="always"
-                  sx={{ textAlign: "left", wordBreak: "break-all" }}
-                >
-                  {"https://www.linkedin.com/in/mai-shimizu-73b2892a8/"}
-                </Link>
+                {/* Text Area */}
+                <Box sx={{ flex: 1, maxWidth: { xs: "100%", md: 600 } }}>
+                  <Typography
+                    variant="h4"
+                    fontWeight={700}
+                    mb={3}
+                    sx={{
+                      background:
+                        "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
+                      backgroundClip: "text",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {t("aboutMe")}
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: 2.5,
+                      color: "rgba(255, 255, 255, 0.9)",
+                      lineHeight: 1.7,
+                      letterSpacing: "0.3px",
+                    }}
+                  >
+                    {t("describeMyself")}
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: 4,
+                      color: "rgba(255, 255, 255, 0.8)",
+                      lineHeight: 1.7,
+                      letterSpacing: "0.3px",
+                    }}
+                  >
+                    {t("hobby")}
+                  </Typography>
+
+                  {/* Contact Links */}
+                  <Stack
+                    direction={{ xs: "column", md: "row" }}
+                    spacing={3}
+                    alignItems={{ xs: "flex-start", md: "center" }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1.5,
+                        px: 2.5,
+                        py: 1.5,
+                        borderRadius: "12px",
+                        background: "rgba(209, 27, 241, 0.08)",
+                        border: "1px solid rgba(209, 27, 241, 0.2)",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          background: "rgba(209, 27, 241, 0.15)",
+                          borderColor: "rgba(209, 27, 241, 0.3)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <GitHubIcon sx={{ color: "#d11bf1cf" }} />
+                      <Link
+                        href="https://github.com/Shishimai1996"
+                        underline="none"
+                        sx={{
+                          color: "rgba(255, 255, 255, 0.9)",
+                          fontWeight: 500,
+                          "&:hover": { color: "#64c8ff" },
+                        }}
+                      >
+                        GitHub
+                      </Link>
+                    </Box>
+
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1.5,
+                        px: 2.5,
+                        py: 1.5,
+                        borderRadius: "12px",
+                        background: "rgba(100, 200, 255, 0.08)",
+                        border: "1px solid rgba(100, 200, 255, 0.2)",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          background: "rgba(100, 200, 255, 0.15)",
+                          borderColor: "rgba(100, 200, 255, 0.3)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <LinkedInIcon sx={{ color: "#64c8ff" }} />
+                      <Link
+                        href="https://www.linkedin.com/in/mai-shimizu-73b2892a8/"
+                        underline="none"
+                        sx={{
+                          color: "rgba(255, 255, 255, 0.9)",
+                          fontWeight: 500,
+                          "&:hover": { color: "#d11bf1cf" },
+                        }}
+                      >
+                        LinkedIn
+                      </Link>
+                    </Box>
+                  </Stack>
+                </Box>
               </Stack>
-            </Stack>
-          </Paper>
-        </Grow>
-      </Box>
+            </Paper>
+          </Grow>
+        </Box>
+      </Container>
     </Box>
   );
 };

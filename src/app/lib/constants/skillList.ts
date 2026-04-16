@@ -16,18 +16,18 @@ export const skillList: ISkillList[] = [
     title: "programmingLanguage",
     items: [
       {
-        src: `${BASE_PATH}/assets/image/html.png`,
+        src: `${BASE_PATH}/assets/image/html-5.png`,
         tabIndex: 0,
         date: "2022-08-01",
         alt: "HTML",
         style: 50,
       },
       {
-        src: `${BASE_PATH}/assets/image/css.png`,
+        src: `${BASE_PATH}/assets/image/css-3.png`,
         tabIndex: 1,
         date: "2022-08-01",
         alt: "CSS",
-        style: 40,
+        style: 50,
       },
       {
         src: `${BASE_PATH}/assets/image/javascript.png`,
@@ -50,21 +50,21 @@ export const skillList: ISkillList[] = [
     title: "frameWork",
     items: [
       {
-        src: `${BASE_PATH}/assets/image/react.jpg`,
+        src: `${BASE_PATH}/assets/image/programing.png`,
         tabIndex: 4,
         date: "2023-02-01",
         alt: "React.js",
         style: 50,
       },
       {
-        src: `${BASE_PATH}/assets/image/next.png`,
+        src: `${BASE_PATH}/assets/image/nextjs.png`,
         tabIndex: 5,
         date: "2023-03-01",
         alt: "Next.js",
         style: 50,
       },
       {
-        src: `${BASE_PATH}/assets/image/node.png`,
+        src: `${BASE_PATH}/assets/image/nodejs.png`,
         tabIndex: 6,
         date: "2023-03-01",
         alt: "Node.js",
@@ -95,7 +95,7 @@ export const skillList: ISkillList[] = [
         tabIndex: 9,
         date: "2022-10-01",
         alt: "Figma",
-        style: 50,
+        style: 40,
       },
     ],
   },
@@ -111,7 +111,7 @@ export const skillList: ISkillList[] = [
         style: 50,
       },
       {
-        src: `${BASE_PATH}/assets/image/github.png`,
+        src: `${BASE_PATH}/assets/image/logo.png`,
         tabIndex: 11,
         date: "2022-08-01",
         alt: "Github",
