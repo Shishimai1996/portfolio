@@ -93,9 +93,11 @@ export const Search: React.FC<SearchComponentProps> = ({
         renderInput={(params) => (
           <TextField
             {...params}
-            inputProps={{
-              ...params.inputProps,
-              type: "search",
+            slotProps={{
+              htmlInput: {
+                ...params.inputProps,
+                type: "search",
+              },
             }}
             placeholder={t("search")}
             sx={{
