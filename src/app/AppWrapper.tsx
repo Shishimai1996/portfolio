@@ -25,9 +25,10 @@ export default function AppWrapper({
       <main
         data-tab-index={tabIndex}
         style={{
-          minHeight: "calc(100vh - 80px)", // headerの高さを引く
-          paddingTop: "80px", // header分のpadding
+          minHeight: "auto",
           position: "relative",
+          paddingTop: "85px",
+          paddingBottom: "10px",
         }}
       >
         {children}
@@ -35,7 +36,7 @@ export default function AppWrapper({
         <HelloOverlay />
         <Box
           sx={{
-            position: "fixed",
+            position: "sticky",
             top: "80px",
             left: 0,
             right: 0,
@@ -43,6 +44,8 @@ export default function AppWrapper({
             display: "flex",
             justifyContent: "center",
             transition: "top 0.3s ease",
+            background: "rgba(0, 0, 0, 0.05)",
+            backdropFilter: "blur(5px)",
           }}
         >
           <TabSetting tabIndex={tabIndex} />

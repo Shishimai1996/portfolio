@@ -111,7 +111,7 @@
 }
 
 html {
-  height: 100%;
+  height: auto;
   overflow-y: auto;
 }
 
@@ -123,7 +123,7 @@ html {
     @apply bg-background text-foreground;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: auto;
     overflow-x: hidden;
     overflow-y: auto;
   }
