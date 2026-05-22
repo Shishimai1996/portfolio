@@ -35,6 +35,12 @@ const images = [
     width: "40%",
     link: "https://shishimai1996.github.io/weatherApp/",
   },
+  {
+    url: `${BASE_PATH}/assets/image/todoapp.png`,
+    title: "Fullstack TODO App",
+    width: "40%",
+    link: "http://52.194.34.190/",
+  },
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
