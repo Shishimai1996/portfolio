@@ -303,7 +303,7 @@ export default function Resume() {
             <TimelineItem
               icon={WorkIcon}
               title={t("company")}
-              date="2019/4 - 2026/4"
+              date="2019/4 - 2022/7"
               description={t("jobContent")}
               isLeft={false}
               index={1}
@@ -318,7 +318,15 @@ export default function Resume() {
               isLeft={true}
               index={2}
             />
-
+            {/* Job 3 */}
+            <TimelineItem
+              icon={WorkIcon}
+              title={t("company")}
+              date="2025/8 - 2026/4"
+              description={t("webEngineer")}
+              isLeft={false}
+              index={3}
+            />
             {/* Future */}
             <Box
               sx={{
