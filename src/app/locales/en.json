@@ -2,25 +2,14 @@
   "hello": "H e l l o",
   "portfolio": "Portfolio",
   "aboutMe": "About Me",
-  "describeMyself": "Frontend engineer based in Japan with 3+ years of experience building web applications using React and TypeScript.",
-  "hobby": "I enjoy learning new technologies and exploring different cultures. Currently seeking opportunities in Australia.",
-  "contact": "Contact address",
   "programmingLanguage": "Programming Language",
   "frameWork": "FrameWork",
   "designTool": "Design Tool",
   "developmentTool": "Development Tool",
   "like": "Like",
   "translate": "Language Exchange",
-  "name": "Mai Shimizu",
-  "frontendEngineer": "Frontend Engineer",
   "university": "Sugiyama University",
-  "subject": "Cross-Culture studies",
-  "company": "AISIN Co.",
-  "workYear": "2019/4~ current",
-  "jobContent": " Work as an assistant for reducing ECU costs projects of vehicle components.",
   "woven": "Woven by Toyota. Inc",
-  "engineer": " Work as an associate engineer for the Inventor support division.",
-  "webEngineer": " Work as frontend engineer for internal HR portal.",
   "search": "Search",
   "tabs": {
     "profile": "Profile",
@@ -28,18 +17,81 @@
     "work": "Work",
     "resume": "Resume"
   },
-  "Profile": "Profile",
-  "Skill": "Skill",
-  "Work": "Work",
-  "Resume": "Resume",
-  "Contact address": "Contact address",
-  "About me": "About me",
-  "Programming": "Programming",
-  "Language": "Language",
-  "Framework": "Framework",
-  "Design tool": "Design tool",
-  "Development": "Development",
-  "Grafana": "Grafana",
-  "Chart": "Chart",
-  "search": "search"
+  "profile": {
+    "role": "SENIOR FRONTEND ENGINEER",
+    "headline": "Architecting fast, reliable React/Next.js platforms — extended with hands-on AI/LLM integration.",
+    "location": "Melbourne, Australia · Full work rights (WHV valid until May 2027) · Open to Sydney / Brisbane",
+    "bio1": "Frontend Engineer with 4 years building production React/Next.js platforms, from enterprise SaaS to AI-integrated internal tools — owning everything from rendering strategy to design systems.",
+    "bio2": "Comfortable owning technical decisions — rendering strategy, component architecture, performance — and partnering directly with stakeholders to turn ambiguous requirements into shipped, reliable products.",
+    "focusAreas": "Focus areas: React/Next.js architecture, design systems, Core Web Vitals & performance, LLM/RAG integration, and cross-functional technical leadership.",
+    "closing": "I help teams turn ambiguous product requirements into fast, thoughtfully architected frontend experiences.",
+    "emailLabel": "Email"
+  },
+  "resume": {
+    "overline": "PROFESSIONAL JOURNEY",
+    "headline": "Four years architecting frontend systems — from enterprise platforms to AI-powered internal tools.",
+    "educationDescription": "Built a strong foundation in communication, cross-cultural collaboration, and structured problem solving that continues to shape my engineering judgment and effectiveness in team settings.",
+    "job1": {
+      "title": "Administration Assistant",
+      "subtitle": "Aisin Corporation, Japan",
+      "bullets": [
+        "Automated complex data-reporting workflows using Excel VBA, eliminating 50% of manual processing time and improving data reliability.",
+        "Facilitated data-driven cross-functional cost-reduction initiatives, bridging technical engineering data and commercial procurement metrics."
+      ]
+    },
+    "job2": {
+      "title": "Frontend Engineer (AI & Web Platform)",
+      "bullets": [
+        "Engineered and scaled a high-performance React/Next.js portal for internal stakeholders and global innovators, focused on UI performance and Core Web Vitals.",
+        "Led legacy system modernization, managing the transition between old and new architectures while maintaining service stability.",
+        "Architected and deployed a production-grade GenAI chatbot using LangChain and Qdrant vector databases, implementing RAG workflows for internal knowledge discovery.",
+        "Collaborated daily in 100% English within a multinational Agile/Scrum team, contributing to code reviews and frontend coding standards."
+      ]
+    },
+    "job3": {
+      "title": "Frontend / Full-Stack Engineer",
+      "subtitle": "Aisin Corporation, Japan",
+      "bullets": [
+        "Led frontend architecture for a mission-critical talent management and e-learning platform scaling to 4,000-6,000 active employees (Next.js, TypeScript, Node.js).",
+        "Owned the platform's rendering strategy, driving a hybrid SSG + CSR architecture to maximize initial page-load speed and minimize client-to-backend round trips.",
+        "Partnered directly with HR executives and engineering stakeholders to translate ambiguous business problems into technical strategy.",
+        "Designed an enterprise-grade component library in Figma and established the frontend UI foundation within one month."
+      ]
+    },
+    "openTo": "Open to Senior Frontend / Full-Stack roles in Melbourne, Sydney, or Brisbane — full Australian work rights (WHV valid to 05/2027)."
+  },
+  "skill": {
+    "overline": "CORE STRENGTHS",
+    "headline": "Frontend architecture expertise, extended by hands-on AI/LLM integration and full-stack delivery.",
+    "aiEngineering": "AI Engineering",
+    "cloudBackend": "Cloud & Backend"
+  },
+  "work": {
+    "overline": "SELECTED WORK",
+    "headline": "A collection of product-focused builds that balance usability, performance, and clarity.",
+    "rag": {
+      "title": "RAG chatbot App",
+      "description": "Built an AI-assisted experience for document-aware conversations and retrieval workflows, demonstrating practical GenAI integration and clear product impact."
+    },
+    "todo": {
+      "title": "Fullstack TODO App",
+      "description": "Delivered a full-stack task platform with structured workflows and backend services, balancing product usability with scalable engineering decisions and business value."
+    },
+    "ecommerce": {
+      "title": "React x TypeScript",
+      "description": "Implemented a polished e-commerce experience with stateful product flows and UI refinement, reflecting strong frontend engineering discipline and attention to detail."
+    },
+    "unsplash": {
+      "title": "Next x API app",
+      "description": "Built a responsive content-driven app with API integration and search-driven UX."
+    },
+    "chart": {
+      "title": "Chart.js",
+      "description": "Created data-rich interfaces with interactive visual storytelling and clear information hierarchy."
+    },
+    "weather": {
+      "title": "OpenWeather API",
+      "description": "Developed a real-time weather experience focused on clarity, usability, and API-driven data handling."
+    }
+  }
 }

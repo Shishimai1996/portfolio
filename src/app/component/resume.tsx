@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
-import SchoolIcon from "@mui/icons-material/School";
-import WorkIcon from "@mui/icons-material/Work";
 import { Stack, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -14,19 +12,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const TimelineItem = ({
-  icon: Icon,
   title,
+  subtitle,
   date,
   description,
-  description2,
+  bullets,
   isLeft,
   index,
 }: {
-  icon: React.ElementType;
   title: string;
+  subtitle?: string;
   date: string;
-  description: string;
-  description2?: string;
+  description?: string;
+  bullets?: string[];
   isLeft: boolean;
   index: number;
 }) => {
@@ -135,18 +133,18 @@ const TimelineItem = ({
         <Box
           ref={contentRef}
           sx={{
-            p: 3,
-            borderRadius: "12px",
-            backdropFilter: "blur(10px)",
-            background: "rgba(255, 255, 255, 0.03)",
-            border: "1px solid rgba(209, 27, 241, 0.2)",
-            transition: "all 0.3s ease",
+            p: 4,
+            borderRadius: "8px",
+            backdropFilter: "blur(8px)",
+            background: "rgba(255, 255, 255, 0.04)",
+            border: "1px solid rgba(209, 27, 241, 0.15)",
+            transition: "all 0.4s ease",
             opacity: 0,
             transform: "translateY(24px)",
             "&:hover": {
-              background: "rgba(255, 255, 255, 0.06)",
-              borderColor: "rgba(209, 27, 241, 0.4)",
-              boxShadow: "0 8px 32px rgba(209, 27, 241, 0.15)",
+              background: "rgba(255, 255, 255, 0.055)",
+              borderColor: "rgba(209, 27, 241, 0.25)",
+              boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
             },
           }}
         >
@@ -160,6 +158,17 @@ const TimelineItem = ({
           >
             {title}
           </Typography>
+          {subtitle && (
+            <Typography
+              variant="body2"
+              sx={{
+                color: "rgba(255, 255, 255, 0.6)",
+                mb: 0.5,
+              }}
+            >
+              {subtitle}
+            </Typography>
+          )}
           <Typography
             variant="body2"
             sx={{
@@ -169,23 +178,38 @@ const TimelineItem = ({
           >
             {date}
           </Typography>
-          <Typography
-            variant="body2"
-            sx={{
-              color: "rgba(255, 255, 255, 0.7)",
-            }}
-          >
-            {description}
-          </Typography>
-          {description2 && (
+          {bullets ? (
+            <Stack spacing={0.75}>
+              {bullets.map((bullet, i) => (
+                <Typography
+                  key={i}
+                  variant="body2"
+                  sx={{
+                    color: "rgba(255, 255, 255, 0.7)",
+                    lineHeight: 1.7,
+                    display: "flex",
+                    gap: 1,
+                  }}
+                >
+                  <Box
+                    component="span"
+                    sx={{ color: "rgba(100, 200, 255, 0.8)", flexShrink: 0 }}
+                  >
+                    ▸
+                  </Box>
+                  <span>{bullet}</span>
+                </Typography>
+              ))}
+            </Stack>
+          ) : (
             <Typography
               variant="body2"
               sx={{
-                color: "rgba(255, 255, 255, 0.6)",
-                mt: 1,
+                color: "rgba(255, 255, 255, 0.7)",
+                lineHeight: 1.7,
               }}
             >
-              {description2}
+              {description}
             </Typography>
           )}
         </Box>
@@ -214,7 +238,6 @@ const TimelineItem = ({
 };
 
 export default function Resume() {
-  const [showResume] = useState<boolean>(true);
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -223,9 +246,9 @@ export default function Resume() {
     <Box
       sx={{
         width: "100%",
-        py: { xs: 6, md: 10 },
+        py: { xs: 8, md: 14 },
         background:
-          "linear-gradient(135deg, rgba(209, 27, 241, 0.03) 0%, rgba(100, 200, 255, 0.03) 100%)",
+          "linear-gradient(135deg, rgba(209, 27, 241, 0.02) 0%, rgba(100, 200, 255, 0.02) 100%)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -233,6 +256,8 @@ export default function Resume() {
       {/* SVG Timeline */}
       {!isMobile && (
         <svg
+          viewBox="0 0 4 100"
+          preserveAspectRatio="none"
           style={{
             position: "absolute",
             left: "50%",
@@ -258,7 +283,7 @@ export default function Resume() {
             </filter>
           </defs>
           <path
-            d={`M 2 0 Q 8 200 2 400 T 2 800`}
+            d="M 2 0 Q 3 25 2 50 T 2 100"
             stroke="url(#neonGradient)"
             strokeWidth="3"
             fill="none"
@@ -271,19 +296,31 @@ export default function Resume() {
       <Container maxWidth="lg">
         <Box sx={{ position: "relative", zIndex: 2 }}>
           {/* Title */}
-          <Box sx={{ textAlign: "center", mb: 8 }}>
+          <Box sx={{ textAlign: "center", mb: 12 }}>
             <Typography
-              variant="h4"
-              fontWeight={700}
+              variant="overline"
               sx={{
-                background:
-                  "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+                color: "rgba(100, 200, 255, 0.7)",
+                letterSpacing: "0.3em",
+                mb: 2,
+                fontWeight: 500,
+                fontSize: "0.75rem",
               }}
             >
-              My Journey
+              {t("resume.overline")}
+            </Typography>
+            <Typography
+              variant="h4"
+              fontWeight={600}
+              sx={{
+                color: "#ffffff",
+                letterSpacing: "-0.015em",
+                lineHeight: 1.3,
+                fontSize: { xs: "1.75rem", md: "2rem" },
+              }}
+            >
+              {t("resume.headline")}
             </Typography>
           </Box>
 
@@ -291,39 +328,38 @@ export default function Resume() {
           <Box sx={{ maxWidth: "900px", mx: "auto" }}>
             {/* Education */}
             <TimelineItem
-              icon={SchoolIcon}
               title={t("university")}
               date="2015 - 2019"
-              description={t("subject")}
+              description={t("resume.educationDescription")}
               isLeft={true}
               index={0}
             />
 
             {/* Job 1 */}
             <TimelineItem
-              icon={WorkIcon}
-              title={t("company")}
+              title={t("resume.job1.title")}
+              subtitle={t("resume.job1.subtitle")}
               date="2019/4 - 2022/7"
-              description={t("jobContent")}
+              bullets={t("resume.job1.bullets", { returnObjects: true }) as string[]}
               isLeft={false}
               index={1}
             />
 
             {/* Job 2 */}
             <TimelineItem
-              icon={WorkIcon}
-              title={t("woven")}
+              title={t("resume.job2.title")}
+              subtitle={t("woven")}
               date="2022/8 - 2025/7"
-              description={t("engineer")}
+              bullets={t("resume.job2.bullets", { returnObjects: true }) as string[]}
               isLeft={true}
               index={2}
             />
             {/* Job 3 */}
             <TimelineItem
-              icon={WorkIcon}
-              title={t("company")}
+              title={t("resume.job3.title")}
+              subtitle={t("resume.job3.subtitle")}
               date="2025/8 - 2026/4"
-              description={t("webEngineer")}
+              bullets={t("resume.job3.bullets", { returnObjects: true }) as string[]}
               isLeft={false}
               index={3}
             />
@@ -372,10 +408,11 @@ export default function Resume() {
                   <Typography
                     variant="body2"
                     sx={{
-                      color: "rgba(100, 200, 255, 0.6)",
+                      color: "rgba(100, 200, 255, 0.8)",
+                      fontWeight: 600,
                     }}
                   >
-                    Coming Soon...
+                    {t("resume.openTo")}
                   </Typography>
                 </Box>
               </Box>

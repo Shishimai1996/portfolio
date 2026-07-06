@@ -10,6 +10,19 @@ import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
+const aiCloudSkillList = [
+  {
+    id: "aiEngineering",
+    title: "skill.aiEngineering",
+    items: ["LangChain", "Qdrant (Vector Search)", "RAG Pipelines", "Prompt Engineering"],
+  },
+  {
+    id: "cloudBackend",
+    title: "skill.cloudBackend",
+    items: ["AWS (EC2 / S3)", "Docker & CI/CD", "PostgreSQL", "NestJS"],
+  },
+];
+
 const Skill = () => {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
@@ -31,16 +44,44 @@ const Skill = () => {
     <Box
       sx={{
         width: "100%",
-        py: { xs: 6, md: 8 },
+        py: { xs: 8, md: 12 },
         background:
-          "linear-gradient(135deg, rgba(209, 27, 241, 0.03) 0%, rgba(100, 200, 255, 0.03) 100%)",
+          "linear-gradient(135deg, rgba(209, 27, 241, 0.02) 0%, rgba(100, 200, 255, 0.02) 100%)",
         overflow: "visible",
       }}
     >
       <Container maxWidth="xl" sx={{ overflow: "visible" }}>
+        <Box sx={{ mb: 8, textAlign: { xs: "left", md: "center" }, maxWidth: 760, mx: "auto" }}>
+          <Typography
+            variant="overline"
+            sx={{
+              display: "inline-block",
+              color: "rgba(100, 200, 255, 0.7)",
+              letterSpacing: "0.3em",
+              mb: 2,
+              fontWeight: 500,
+              fontSize: "0.75rem",
+            }}
+          >
+            {t("skill.overline")}
+          </Typography>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#ffffff",
+              fontWeight: 600,
+              letterSpacing: "-0.015em",
+              mb: 1,
+              lineHeight: 1.3,
+              fontSize: { xs: "1.75rem", md: "2rem" },
+            }}
+          >
+            {t("skill.headline")}
+          </Typography>
+        </Box>
         <Grid2
           container
-          spacing={{ xs: 4, md: 3 }}
+          spacing={{ xs: 5, md: 4 }}
           sx={{
             display: "grid",
             gridTemplateColumns: {
@@ -63,32 +104,28 @@ const Skill = () => {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  p: { xs: 3, md: 4 },
-                  borderRadius: "16px",
-                  background: "rgba(255, 255, 255, 0.02)",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(209, 27, 241, 0.1)",
-                  transition: "all 0.3s ease",
+                  p: { xs: 4, md: 5 },
+                  borderRadius: "8px",
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  transition: "all 0.4s ease",
                   width: "100%",
+                  backdropFilter: "blur(8px)",
                   "&:hover": {
-                    background: "rgba(255, 255, 255, 0.04)",
-                    borderColor: "rgba(209, 27, 241, 0.2)",
-                    boxShadow: "0 8px 32px rgba(209, 27, 241, 0.1)",
+                    background: "rgba(255, 255, 255, 0.055)",
+                    borderColor: "rgba(255, 255, 255, 0.12)",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
                   },
                 }}
               >
                 <Typography
-                  variant={isMdUp ? "h4" : "h5"}
+                  variant={isMdUp ? "h5" : "h6"}
                   sx={{
                     textAlign: "center",
                     fontWeight: 700,
-                    background:
-                      "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
-                    backgroundClip: "text",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    mb: 4,
-                    letterSpacing: "-0.5px",
+                    color: "#ffffff",
+                    mb: 3,
+                    letterSpacing: "0.3px",
                   }}
                 >
                   {t(skill.title)}
@@ -100,7 +137,7 @@ const Skill = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     flexWrap: "wrap",
-                    gap: 2.5,
+                    gap: 2,
                   }}
                 >
                   {skill.items.map((item, index) => (
@@ -108,27 +145,25 @@ const Skill = () => {
                       <Box
                         sx={{
                           display: "inline-flex",
-                          borderRadius: "14px",
-                          transition:
-                            "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                          borderRadius: "10px",
+                          transition: "all 0.3s ease",
                           cursor: "pointer",
                           padding: "8px",
-                          background: "rgba(255, 255, 255, 0.02)",
-                          border: "1px solid rgba(209, 27, 241, 0.1)",
+                          background: "rgba(255, 255, 255, 0.05)",
+                          border: "1px solid rgba(255, 255, 255, 0.1)",
 
                           "&:hover": {
-                            transform: "translateY(-8px) scale(1.08)",
+                            transform: "translateY(-4px) scale(1.05)",
                             boxShadow: `
-                              0 12px 24px rgba(209, 27, 241, 0.2),
-                              0 20px 40px rgba(100, 200, 255, 0.15),
-                              inset 0 1px 2px rgba(255, 255, 255, 0.2)
+                              0 8px 16px rgba(0, 0, 0, 0.3),
+                              0 12px 24px rgba(100, 200, 255, 0.1)
                             `,
-                            background: "rgba(209, 27, 241, 0.08)",
-                            borderColor: "rgba(209, 27, 241, 0.3)",
+                            background: "rgba(255, 255, 255, 0.08)",
+                            borderColor: "rgba(255, 255, 255, 0.2)",
                           },
                           "&:hover img": {
                             filter:
-                              "brightness(1.25) drop-shadow(0 0 8px rgba(209, 27, 241, 0.4))",
+                              "brightness(1.15) drop-shadow(0 0 6px rgba(100, 200, 255, 0.3))",
                           },
                         }}
                       >
@@ -154,6 +189,86 @@ const Skill = () => {
                         handlePopoverClose={handlePopoverClose}
                       />
                     </React.Fragment>
+                  ))}
+                </Stack>
+              </Stack>
+            </Grid2>
+          ))}
+
+          {aiCloudSkillList.map((category) => (
+            <Grid2
+              size={{ xs: 12, md: 12 }}
+              key={category.id}
+              sx={{
+                display: "flex",
+              }}
+            >
+              <Stack
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  p: { xs: 4, md: 5 },
+                  borderRadius: "8px",
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  transition: "all 0.4s ease",
+                  width: "100%",
+                  backdropFilter: "blur(8px)",
+                  "&:hover": {
+                    background: "rgba(255, 255, 255, 0.055)",
+                    borderColor: "rgba(255, 255, 255, 0.12)",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
+                <Typography
+                  variant={isMdUp ? "h5" : "h6"}
+                  sx={{
+                    textAlign: "center",
+                    fontWeight: 700,
+                    color: "#ffffff",
+                    mb: 3,
+                    letterSpacing: "0.3px",
+                  }}
+                >
+                  {t(category.title)}
+                </Typography>
+                <Stack
+                  direction="row"
+                  spacing={1.5}
+                  sx={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexWrap: "wrap",
+                    gap: 1.5,
+                  }}
+                >
+                  {category.items.map((item) => (
+                    <Box
+                      key={item}
+                      sx={{
+                        px: 2.5,
+                        py: 1.25,
+                        borderRadius: "999px",
+                        background: "rgba(255, 255, 255, 0.05)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          transform: "translateY(-4px) scale(1.05)",
+                          background: "rgba(255, 255, 255, 0.08)",
+                          borderColor: "rgba(255, 255, 255, 0.2)",
+                        },
+                      }}
+                    >
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "rgba(255, 255, 255, 0.85)", fontWeight: 500 }}
+                      >
+                        {item}
+                      </Typography>
+                    </Box>
                   ))}
                 </Stack>
               </Stack>

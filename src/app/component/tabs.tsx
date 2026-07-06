@@ -96,9 +96,8 @@ const TabSetting: React.FC<TabComponentProps> = ({ tabIndex }) => {
     >
       <Box
         sx={{
-          borderBottom: "2px solid rgba(209, 27, 241, 0.1)",
-          background: "rgba(255, 255, 255, 0.02)",
-          backdropFilter: "blur(8px)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          background: "rgba(255, 255, 255, 0.03)",
           borderRadius: "12px 12px 0 0",
           mb: 2,
         }}
@@ -127,25 +126,24 @@ const TabSetting: React.FC<TabComponentProps> = ({ tabIndex }) => {
               label={isReady ? t(tab.label) : tab.label}
               {...a11yProps(index)}
               sx={{
-                color: "rgba(255, 255, 255, 0.6)",
-                fontWeight: 500,
-                fontSize: { xs: "0.9rem", md: "1rem" },
+                color: "rgba(255, 255, 255, 0.7)",
+                fontWeight: 600,
+                fontSize: { xs: "0.9rem", md: "0.95rem" },
                 textTransform: "uppercase",
-                letterSpacing: "0.5px",
-                transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                letterSpacing: "0.4px",
+                transition: "all 0.2s ease",
                 position: "relative",
                 px: { xs: 2, md: 3 },
-                py: 1.5,
+                py: 1.25,
 
                 "&:hover": {
-                  color: "rgba(255, 255, 255, 0.9)",
-                  background: "rgba(209, 27, 241, 0.05)",
+                  color: "rgba(255, 255, 255, 0.95)",
+                  background: "rgba(255, 255, 255, 0.04)",
                 },
 
                 "&.Mui-selected": {
-                  color: "#64c8ff",
+                  color: "#ffffff",
                   fontWeight: 700,
-                  textShadow: "0 0 20px rgba(100, 200, 255, 0.3)",
                 },
               }}
             />

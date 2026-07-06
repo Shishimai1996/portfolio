@@ -118,18 +118,12 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
         position="fixed"
         elevation={0}
         sx={{
-          background:
-            "linear-gradient(135deg, rgba(20, 20, 40, 0.8) 0%, rgba(30, 20, 50, 0.8) 100%)",
-          backdropFilter: "blur(10px)",
-          border: "1px solid rgba(209, 27, 241, 0.2)",
+          background: "rgba(10, 12, 20, 0.92)",
+          border: "1px solid rgba(255, 255, 255, 0.08)",
           color: "#ffffffdc",
           height: "70px",
-          boxShadow: "0 8px 32px rgba(209, 27, 241, 0.1)",
+          boxShadow: "0 2px 16px rgba(0, 0, 0, 0.25)",
           transition: "all 0.3s ease",
-          "&:hover": {
-            boxShadow: "0 12px 48px rgba(209, 27, 241, 0.15)",
-            borderColor: "rgba(209, 27, 241, 0.3)",
-          },
         }}
       >
         <Toolbar

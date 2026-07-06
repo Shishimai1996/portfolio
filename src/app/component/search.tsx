@@ -22,7 +22,7 @@ export const Search: React.FC<SearchComponentProps> = ({
     <Box sx={{ width: 300 }}>
       <Autocomplete
         disablePortal
-        filterOptions={(options, state) => {
+        filterOptions={(_options, state) => {
           const searchedInput = state.inputValue;
           if (searchedInput === "") {
             return searchList.map((option) => option.label);

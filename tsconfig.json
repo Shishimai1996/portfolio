@@ -21,16 +21,7 @@
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@assets/*": [
-        "./assets/*"
-      ]
-    },
-    "baseUrl": "src"
+    ]
   },
   "include": [
     "next-env.d.ts",

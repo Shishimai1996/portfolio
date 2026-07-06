@@ -29,9 +29,8 @@ export default function HelloOverlay() {
           zIndex: 1300,
           width: "100%",
           height: "100%",
-          background:
-            "linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 20, 50, 0.95) 100%)",
-          backdropFilter: "blur(10px)",
+          background: "rgba(7, 10, 18, 0.96)",
+          backdropFilter: "blur(8px)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
