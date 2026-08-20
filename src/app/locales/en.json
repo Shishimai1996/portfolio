@@ -20,7 +20,7 @@
   "profile": {
     "role": "SENIOR FRONTEND ENGINEER",
     "headline": "Architecting fast, reliable React/Next.js platforms — extended with hands-on AI/LLM integration.",
-    "location": "Melbourne, Australia · Full work rights (WHV valid until May 2027) · Open to Sydney / Brisbane",
+    "location": "Australia · Full work rights (WHV valid until May 2027)",
     "bio1": "Frontend Engineer with 4 years building production React/Next.js platforms, from enterprise SaaS to AI-integrated internal tools — owning everything from rendering strategy to design systems.",
     "bio2": "Comfortable owning technical decisions — rendering strategy, component architecture, performance — and partnering directly with stakeholders to turn ambiguous requirements into shipped, reliable products.",
     "focusAreas": "Focus areas: React/Next.js architecture, design systems, Core Web Vitals & performance, LLM/RAG integration, and cross-functional technical leadership.",
@@ -42,8 +42,8 @@
     "job2": {
       "title": "Frontend Engineer (AI & Web Platform)",
       "bullets": [
-        "Engineered and scaled a high-performance React/Next.js portal for internal stakeholders and global innovators, focused on UI performance and Core Web Vitals.",
-        "Led legacy system modernization, managing the transition between old and new architectures while maintaining service stability.",
+        "Engineered and scaled a high-performance React/Next.js portal for internal stakeholders and global innovators, focusing on UI performance optimization, clean architecture, and rigorous peer code reviews.",
+        "Built and maintained BFF services with Node.js/Express to bridge frontend applications with internal APIs and the AI pipeline.",
         "Architected and deployed a production-grade GenAI chatbot using LangChain and Qdrant vector databases, implementing RAG workflows for internal knowledge discovery.",
         "Collaborated daily in 100% English within a multinational Agile/Scrum team, contributing to code reviews and frontend coding standards."
       ]
@@ -52,13 +52,12 @@
       "title": "Frontend / Full-Stack Engineer",
       "subtitle": "Aisin Corporation, Japan",
       "bullets": [
-        "Led frontend architecture for a mission-critical talent management and e-learning platform scaling to 4,000-6,000 active employees (Next.js, TypeScript, Node.js).",
-        "Owned the platform's rendering strategy, driving a hybrid SSG + CSR architecture to maximize initial page-load speed and minimize client-to-backend round trips.",
-        "Partnered directly with HR executives and engineering stakeholders to translate ambiguous business problems into technical strategy.",
-        "Designed an enterprise-grade component library in Figma and established the frontend UI foundation within one month."
+        "Built and led front-end implementation of a mission-critical internal talent management and e-learning platform serving 4,000–6,000 active employees, using React, Next.js and TypeScript, while additionally taking ownership of UI/UX decisions to bridge design and engineering.",
+        "Acted as the primary bridge between HR executives and the engineering team, gathering requirements, defining functional specifications, and translating ambiguous business problems into a coherent product and technical roadmap.",
+        "Built and shipped the core version of the platform within one month including dashboard, learning-progress tracking, and growth-analytics views."
       ]
     },
-    "openTo": "Open to Senior Frontend / Full-Stack roles in Melbourne, Sydney, or Brisbane — full Australian work rights (WHV valid to 05/2027)."
+    "openTo": "Open to Senior Frontend / Full-Stack roles in Australia — full Australian work rights (WHV valid to 05/2027)."
   },
   "skill": {
     "overline": "CORE STRENGTHS",

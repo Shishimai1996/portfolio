@@ -43,13 +43,11 @@ export const Popover = ({
       disableRestoreFocus
       PaperProps={{
         sx: {
-          background:
-            "linear-gradient(135deg, rgba(209, 27, 241, 0.95) 0%, rgba(100, 200, 255, 0.95) 100%)",
+          background: "rgba(30, 32, 38, 0.97)",
           backdropFilter: "blur(8px)",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
+          border: "1px solid rgba(91, 141, 239, 0.3)",
           borderRadius: "12px",
-          boxShadow:
-            "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 16px rgba(209, 27, 241, 0.3)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35)",
           animation: "fadeInScale 0.2s ease-out",
           "@keyframes fadeInScale": {
             "0%": {

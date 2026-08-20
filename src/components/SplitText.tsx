@@ -159,7 +159,8 @@ const SplitText: React.FC<SplitTextProps> = ({
       whiteSpace: "normal",
       wordWrap: "break-word",
       willChange: "transform, opacity",
-      color: "#ffffff42",
+      color: "#ffffff",
+      textShadow: "0 0 60px rgba(91, 141, 239, 0.45)",
     };
     const classes = `split-parent ${className}`;
     switch (tag) {

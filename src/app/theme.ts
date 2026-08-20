@@ -15,10 +15,10 @@ export const themeEn = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#1976d2",
+      main: "#5b8def",
     },
     secondary: {
-      main: "#9c27b0",
+      main: "#5b8def",
     },
     background: {
       default: "#121212",
@@ -34,10 +34,10 @@ export const themeJa = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#1976d2",
+      main: "#5b8def",
     },
     secondary: {
-      main: "#ff9800",
+      main: "#5b8def",
     },
   },
   typography: {

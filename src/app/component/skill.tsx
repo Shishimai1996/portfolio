@@ -45,8 +45,6 @@ const Skill = () => {
       sx={{
         width: "100%",
         py: { xs: 8, md: 12 },
-        background:
-          "linear-gradient(135deg, rgba(209, 27, 241, 0.02) 0%, rgba(100, 200, 255, 0.02) 100%)",
         overflow: "visible",
       }}
     >
@@ -56,7 +54,7 @@ const Skill = () => {
             variant="overline"
             sx={{
               display: "inline-block",
-              color: "rgba(100, 200, 255, 0.7)",
+              color: "rgba(91, 141, 239, 0.8)",
               letterSpacing: "0.3em",
               mb: 2,
               fontWeight: 500,
@@ -154,16 +152,12 @@ const Skill = () => {
 
                           "&:hover": {
                             transform: "translateY(-4px) scale(1.05)",
-                            boxShadow: `
-                              0 8px 16px rgba(0, 0, 0, 0.3),
-                              0 12px 24px rgba(100, 200, 255, 0.1)
-                            `,
+                            boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
                             background: "rgba(255, 255, 255, 0.08)",
-                            borderColor: "rgba(255, 255, 255, 0.2)",
+                            borderColor: "rgba(91, 141, 239, 0.3)",
                           },
                           "&:hover img": {
-                            filter:
-                              "brightness(1.15) drop-shadow(0 0 6px rgba(100, 200, 255, 0.3))",
+                            filter: "brightness(1.15)",
                           },
                         }}
                       >

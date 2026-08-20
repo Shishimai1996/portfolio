@@ -49,12 +49,11 @@ const TimelineItem = ({
       dotRef.current,
       {
         scale: 0.95,
-        boxShadow: "0 0 12px rgba(209, 27, 241, 0.25)",
+        boxShadow: "0 0 8px rgba(91, 141, 239, 0.2)",
       },
       {
         scale: 1.3,
-        boxShadow:
-          "0 0 40px #d11bf1cf, 0 0 80px rgba(209, 27, 241, 0.9), 0 0 120px rgba(209, 27, 241, 0.6)",
+        boxShadow: "0 0 24px rgba(91, 141, 239, 0.6)",
         duration: 0.7,
         ease: "power2.out",
         delay: index * 0.15,
@@ -80,8 +79,7 @@ const TimelineItem = ({
     const handleMouseEnter = () => {
       gsap.to(dotRef.current, {
         scale: 1.5,
-        boxShadow:
-          "0 0 50px #64c8ff, 0 0 100px rgba(100, 200, 255, 0.95), 0 0 150px rgba(100, 200, 255, 0.6)",
+        boxShadow: "0 0 32px rgba(91, 141, 239, 0.8)",
         duration: 0.3,
         ease: "power2.out",
       });
@@ -90,8 +88,7 @@ const TimelineItem = ({
     const handleMouseLeave = () => {
       gsap.to(dotRef.current, {
         scale: 1.3,
-        boxShadow:
-          "0 0 40px #d11bf1cf, 0 0 80px rgba(209, 27, 241, 0.8), 0 0 120px rgba(209, 27, 241, 0.4)",
+        boxShadow: "0 0 24px rgba(91, 141, 239, 0.6)",
         duration: 0.3,
         ease: "power2.out",
       });
@@ -137,13 +134,13 @@ const TimelineItem = ({
             borderRadius: "8px",
             backdropFilter: "blur(8px)",
             background: "rgba(255, 255, 255, 0.04)",
-            border: "1px solid rgba(209, 27, 241, 0.15)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
             transition: "all 0.4s ease",
             opacity: 0,
             transform: "translateY(24px)",
             "&:hover": {
               background: "rgba(255, 255, 255, 0.055)",
-              borderColor: "rgba(209, 27, 241, 0.25)",
+              borderColor: "rgba(91, 141, 239, 0.3)",
               boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
             },
           }}
@@ -172,7 +169,7 @@ const TimelineItem = ({
           <Typography
             variant="body2"
             sx={{
-              color: "rgba(100, 200, 255, 0.8)",
+              color: "rgba(91, 141, 239, 0.85)",
               mb: 1,
             }}
           >
@@ -193,7 +190,7 @@ const TimelineItem = ({
                 >
                   <Box
                     component="span"
-                    sx={{ color: "rgba(100, 200, 255, 0.8)", flexShrink: 0 }}
+                    sx={{ color: "rgba(91, 141, 239, 0.85)", flexShrink: 0 }}
                   >
                     ▸
                   </Box>
@@ -226,9 +223,9 @@ const TimelineItem = ({
           width: "20px",
           height: "20px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, #d11bf1cf 0%, #64c8ff 100%)",
+          background: "#5b8def",
           border: "3px solid rgba(0, 0, 0, 0.8)",
-          boxShadow: "0 0 20px #d11bf1cf, 0 0 40px rgba(209, 27, 241, 0.5)",
+          boxShadow: "0 0 16px rgba(91, 141, 239, 0.5)",
           zIndex: 10,
           transition: "all 0.3s ease",
         }}
@@ -247,8 +244,6 @@ export default function Resume() {
       sx={{
         width: "100%",
         py: { xs: 8, md: 14 },
-        background:
-          "linear-gradient(135deg, rgba(209, 27, 241, 0.02) 0%, rgba(100, 200, 255, 0.02) 100%)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -268,26 +263,11 @@ export default function Resume() {
             zIndex: 1,
           }}
         >
-          <defs>
-            <linearGradient id="neonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#d11bf1cf" stopOpacity="1" />
-              <stop offset="50%" stopColor="#64c8ff" stopOpacity="1" />
-              <stop offset="100%" stopColor="#d11bf1cf" stopOpacity="1" />
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
           <path
             d="M 2 0 Q 3 25 2 50 T 2 100"
-            stroke="url(#neonGradient)"
-            strokeWidth="3"
+            stroke="rgba(91, 141, 239, 0.45)"
+            strokeWidth="2"
             fill="none"
-            filter="url(#glow)"
             vectorEffect="non-scaling-stroke"
           />
         </svg>
@@ -301,7 +281,7 @@ export default function Resume() {
               variant="overline"
               sx={{
                 display: "inline-block",
-                color: "rgba(100, 200, 255, 0.7)",
+                color: "rgba(91, 141, 239, 0.8)",
                 letterSpacing: "0.3em",
                 mb: 2,
                 fontWeight: 500,
@@ -381,10 +361,10 @@ export default function Resume() {
                   height: "20px",
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle, #64c8ff 0%, #d11bf1cf 100%)",
+                    "#5b8def",
                   border: "3px solid rgba(0, 0, 0, 0.8)",
                   boxShadow:
-                    "0 0 20px #64c8ff, 0 0 40px rgba(100, 200, 255, 0.5)",
+                    "0 0 16px rgba(91, 141, 239, 0.5)",
                   zIndex: 10,
                 }}
               />
@@ -401,14 +381,14 @@ export default function Resume() {
                     borderRadius: "12px",
                     backdropFilter: "blur(10px)",
                     background: "rgba(255, 255, 255, 0.03)",
-                    border: "2px dashed rgba(100, 200, 255, 0.3)",
+                    border: "2px dashed rgba(91, 141, 239, 0.3)",
                     textAlign: "center",
                   }}
                 >
                   <Typography
                     variant="body2"
                     sx={{
-                      color: "rgba(100, 200, 255, 0.8)",
+                      color: "rgba(91, 141, 239, 0.85)",
                       fontWeight: 600,
                     }}
                   >

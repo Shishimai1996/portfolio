@@ -37,8 +37,6 @@ const Profile = () => {
       sx={{
         width: "100%",
         py: { xs: 8, md: 14 },
-        background:
-          "linear-gradient(135deg, rgba(209, 27, 241, 0.02) 0%, rgba(100, 200, 255, 0.02) 100%)",
       }}
       ref={profileRef}
     >
@@ -62,7 +60,7 @@ const Profile = () => {
               variant="overline"
               sx={{
                 display: "inline-block",
-                color: "rgba(100, 200, 255, 0.7)",
+                color: "rgba(91, 141, 239, 0.8)",
                 letterSpacing: "0.3em",
                 mb: 2,
                 fontWeight: 500,
@@ -99,7 +97,9 @@ const Profile = () => {
               elevation={0}
               sx={{
                 p: { md: 8, xs: 5 },
-                width: { md: "80%", xs: "100%" },
+                width: "100%",
+                maxWidth: { md: 760, xs: "100%" },
+                mx: "auto",
                 borderRadius: "8px",
                 background: "rgba(255, 255, 255, 0.04)",
                 border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -190,25 +190,25 @@ const Profile = () => {
                         px: 3,
                         py: 2,
                         borderRadius: "8px",
-                        background: "rgba(209, 27, 241, 0.06)",
-                        border: "1px solid rgba(209, 27, 241, 0.15)",
+                        background: "rgba(255, 255, 255, 0.04)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
                         transition: "all 0.4s ease",
                         backdropFilter: "blur(6px)",
                         "&:hover": {
-                          background: "rgba(209, 27, 241, 0.1)",
-                          borderColor: "rgba(209, 27, 241, 0.25)",
+                          background: "rgba(91, 141, 239, 0.08)",
+                          borderColor: "rgba(91, 141, 239, 0.3)",
                           transform: "translateY(-1px)",
                         },
                       }}
                     >
-                      <GitHubIcon sx={{ color: "#d11bf1cf" }} />
+                      <GitHubIcon sx={{ color: "rgba(255, 255, 255, 0.75)" }} />
                       <Link
                         href="https://github.com/Shishimai1996"
                         underline="none"
                         sx={{
                           color: "rgba(255, 255, 255, 0.9)",
                           fontWeight: 500,
-                          "&:hover": { color: "#64c8ff" },
+                          "&:hover": { color: "#5b8def" },
                         }}
                       >
                         GitHub
@@ -223,25 +223,25 @@ const Profile = () => {
                         px: 3,
                         py: 2,
                         borderRadius: "8px",
-                        background: "rgba(100, 200, 255, 0.06)",
-                        border: "1px solid rgba(100, 200, 255, 0.15)",
+                        background: "rgba(255, 255, 255, 0.04)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
                         transition: "all 0.4s ease",
                         backdropFilter: "blur(6px)",
                         "&:hover": {
-                          background: "rgba(100, 200, 255, 0.1)",
-                          borderColor: "rgba(100, 200, 255, 0.25)",
+                          background: "rgba(91, 141, 239, 0.08)",
+                          borderColor: "rgba(91, 141, 239, 0.3)",
                           transform: "translateY(-1px)",
                         },
                       }}
                     >
-                      <LinkedInIcon sx={{ color: "#64c8ff" }} />
+                      <LinkedInIcon sx={{ color: "rgba(255, 255, 255, 0.75)" }} />
                       <Link
                         href="https://www.linkedin.com/in/mai-shimizu-73b2892a8/"
                         underline="none"
                         sx={{
                           color: "rgba(255, 255, 255, 0.9)",
                           fontWeight: 500,
-                          "&:hover": { color: "#d11bf1cf" },
+                          "&:hover": { color: "#5b8def" },
                         }}
                       >
                         LinkedIn
@@ -261,20 +261,20 @@ const Profile = () => {
                         transition: "all 0.4s ease",
                         backdropFilter: "blur(6px)",
                         "&:hover": {
-                          background: "rgba(255, 255, 255, 0.07)",
-                          borderColor: "rgba(255, 255, 255, 0.18)",
+                          background: "rgba(91, 141, 239, 0.08)",
+                          borderColor: "rgba(91, 141, 239, 0.3)",
                           transform: "translateY(-1px)",
                         },
                       }}
                     >
-                      <EmailIcon sx={{ color: "rgba(255, 255, 255, 0.7)" }} />
+                      <EmailIcon sx={{ color: "rgba(255, 255, 255, 0.75)" }} />
                       <Link
                         href="mailto:maishimizu75@gmail.com"
                         underline="none"
                         sx={{
                           color: "rgba(255, 255, 255, 0.9)",
                           fontWeight: 500,
-                          "&:hover": { color: "#64c8ff" },
+                          "&:hover": { color: "#5b8def" },
                         }}
                       >
                         {t("profile.emailLabel")}

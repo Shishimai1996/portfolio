@@ -54,11 +54,10 @@ export const Search: React.FC<SearchComponentProps> = ({
         slotProps={{
           paper: {
             sx: {
-              background:
-                "linear-gradient(135deg, rgba(30, 15, 50, 0.98) 0%, rgba(20, 25, 60, 0.98) 100%)",
+              background: "rgba(15, 16, 20, 0.98)",
               backdropFilter: "blur(15px)",
-              border: "1px solid rgba(209, 27, 241, 0.3)",
-              boxShadow: "0 12px 48px rgba(209, 27, 241, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 12px 48px rgba(0, 0, 0, 0.4)",
               "& .MuiAutocomplete-listbox": {
                 padding: "8px 0",
               },
@@ -71,18 +70,16 @@ export const Search: React.FC<SearchComponentProps> = ({
                 fontWeight: 500,
 
                 "&:hover": {
-                  background:
-                    "linear-gradient(90deg, rgba(209, 27, 241, 0.3) 0%, rgba(100, 200, 255, 0.15) 100%) !important",
-                  color: "#64c8ff !important",
+                  background: "rgba(91, 141, 239, 0.15) !important",
+                  color: "#5b8def !important",
                   paddingLeft: "24px !important",
-                  borderLeft: "3px solid rgba(100, 200, 255, 0.8)",
+                  borderLeft: "3px solid rgba(91, 141, 239, 0.8)",
                 },
 
                 "&[aria-selected='true']": {
-                  background:
-                    "linear-gradient(90deg, rgba(209, 27, 241, 0.4) 0%, rgba(100, 200, 255, 0.25) 100%) !important",
-                  color: "#64c8ff !important",
-                  borderLeft: "3px solid rgba(100, 200, 255, 0.8)",
+                  background: "rgba(91, 141, 239, 0.22) !important",
+                  color: "#5b8def !important",
+                  borderLeft: "3px solid rgba(91, 141, 239, 0.8)",
                   paddingLeft: "24px !important",
                   fontWeight: 600,
                 },
@@ -106,21 +103,20 @@ export const Search: React.FC<SearchComponentProps> = ({
                 height: "40px",
                 background: "rgba(255, 255, 255, 0.05)",
                 backdropFilter: "blur(8px)",
-                border: "1px solid rgba(209, 27, 241, 0.2)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
                 borderRadius: "12px",
                 transition: "all 0.3s ease",
                 color: "#ffffffdc",
 
                 "&:hover": {
                   background: "rgba(255, 255, 255, 0.08)",
-                  borderColor: "rgba(209, 27, 241, 0.3)",
-                  boxShadow: "0 4px 16px rgba(209, 27, 241, 0.1)",
+                  borderColor: "rgba(91, 141, 239, 0.35)",
                 },
 
                 "&.Mui-focused": {
                   background: "rgba(255, 255, 255, 0.1)",
-                  borderColor: "rgba(209, 27, 241, 0.5)",
-                  boxShadow: "0 8px 24px rgba(209, 27, 241, 0.15)",
+                  borderColor: "rgba(91, 141, 239, 0.6)",
+                  boxShadow: "0 0 0 3px rgba(91, 141, 239, 0.15)",
                 },
               },
 

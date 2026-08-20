@@ -41,23 +41,11 @@ export default function HelloOverlay() {
             width: "400px",
             height: "400px",
             background:
-              "radial-gradient(circle, rgba(209, 27, 241, 0.15) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(91, 141, 239, 0.12) 0%, transparent 70%)",
             borderRadius: "50%",
             top: "-100px",
             left: "-100px",
             animation: "float 6s ease-in-out infinite",
-          },
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            width: "300px",
-            height: "300px",
-            background:
-              "radial-gradient(circle, rgba(100, 200, 255, 0.15) 0%, transparent 70%)",
-            borderRadius: "50%",
-            bottom: "-50px",
-            right: "-50px",
-            animation: "float 8s ease-in-out infinite reverse",
           },
           "@keyframes float": {
             "0%, 100%": {
@@ -69,26 +57,6 @@ export default function HelloOverlay() {
           },
         }}
       >
-        {/* Floating particles */}
-        <Box
-          sx={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              width: "2px",
-              height: "2px",
-              background: "rgba(209, 27, 241, 0.4)",
-              borderRadius: "50%",
-              top: "20%",
-              left: "10%",
-              animation: "pulse 2s ease-in-out infinite",
-            },
-          }}
-        />
-
         <Box
           sx={{
             position: "relative",
@@ -117,7 +85,7 @@ export default function HelloOverlay() {
               width: "100px",
               height: "4px",
               background:
-                "linear-gradient(90deg, transparent 0%, #64c8ff 50%, transparent 100%)",
+                "linear-gradient(90deg, transparent 0%, #5b8def 50%, transparent 100%)",
               margin: "20px auto 0",
               borderRadius: "2px",
               animation: "slideIn 0.8s ease-out 0.3s forwards",
@@ -144,7 +112,7 @@ export default function HelloOverlay() {
             right: "30px",
             width: "100px",
             height: "100px",
-            border: "2px solid rgba(209, 27, 241, 0.2)",
+            border: "2px solid rgba(255, 255, 255, 0.1)",
             borderRadius: "20px",
             opacity: 0.5,
           }}

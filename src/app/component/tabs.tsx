@@ -109,14 +109,9 @@ const TabSetting: React.FC<TabComponentProps> = ({ tabIndex }) => {
           aria-label="basic tabs example"
           sx={{
             "& .MuiTabs-indicator": {
-              background: "linear-gradient(135deg, #d11bf1cf 0%, #64c8ff 100%)",
+              backgroundColor: "#5b8def",
               height: "3px",
               borderRadius: "2px",
-            },
-          }}
-          TabIndicatorProps={{
-            style: {
-              backgroundColor: "transparent",
             },
           }}
         >

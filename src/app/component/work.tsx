@@ -136,14 +136,13 @@ const ImageF = styled("span")(({ theme }) => ({
 const ImageMarked = styled("span")(() => ({
   height: 3,
   width: 20,
-  backgroundColor: "#64c8ff",
+  backgroundColor: "#5b8def",
   position: "absolute",
   bottom: -10,
   left: "calc(50% - 10px)",
   transition: "all 0.3s ease",
   opacity: 0,
   borderRadius: "2px",
-  boxShadow: "0 0 8px rgba(100, 200, 255, 0.4)",
 }));
 
 export default function Work() {
@@ -159,8 +158,6 @@ export default function Work() {
       sx={{
         width: "100%",
         py: { xs: 8, md: 14 },
-        background:
-          "linear-gradient(135deg, rgba(209, 27, 241, 0.02) 0%, rgba(100, 200, 255, 0.02) 100%)",
       }}
     >
       <Box
@@ -175,7 +172,7 @@ export default function Work() {
             variant="overline"
             sx={{
               display: "inline-block",
-              color: "rgba(100, 200, 255, 0.7)",
+              color: "rgba(91, 141, 239, 0.8)",
               letterSpacing: "0.3em",
               mb: 2,
               fontWeight: 500,
@@ -291,7 +288,7 @@ export default function Work() {
                       <Typography
                         variant="caption"
                         sx={{
-                          color: "rgba(100, 200, 255, 0.8)",
+                          color: "rgba(91, 141, 239, 0.85)",
                           fontSize: "0.7rem",
                           display: "block",
                         }}

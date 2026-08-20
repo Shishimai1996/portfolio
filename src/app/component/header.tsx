@@ -147,7 +147,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
               transition: "all 0.3s ease",
               "&:hover": {
                 transform: "scale(1.1)",
-                color: "#64c8ff",
+                color: "#5b8def",
               },
             }}
             onClick={handleOpenMenu}
@@ -184,14 +184,13 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
             sx={{
               width: "100%",
               maxWidth: 300,
-              background:
-                "linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(30, 20, 50, 0.95) 100%)",
+              background: "rgba(15, 16, 20, 0.97)",
               backdropFilter: "blur(10px)",
-              border: "1px solid rgba(209, 27, 241, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.08)",
               position: "absolute",
               top: "70px",
               left: 0,
-              boxShadow: "0 8px 32px rgba(209, 27, 241, 0.2)",
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35)",
               zIndex: 9999,
               animation: "slideDown 0.3s ease-out",
               "@keyframes slideDown": {
@@ -216,8 +215,8 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                         sx={{
                           transition: "all 0.3s ease",
                           "&:hover": {
-                            background: "rgba(209, 27, 241, 0.1)",
-                            borderLeft: "3px solid rgba(209, 27, 241, 0.5)",
+                            background: "rgba(91, 141, 239, 0.1)",
+                            borderLeft: "3px solid rgba(91, 141, 239, 0.5)",
                             pl: "calc(16px - 3px)",
                           },
                         }}
@@ -231,7 +230,7 @@ export const Header: React.FC<HeaderComponentProps> = ({ onValueChange }) => {
                         }}
                       >
                         <ListItemIcon
-                          sx={{ pointerEvents: "none", color: "#d11bf1cf" }}
+                          sx={{ pointerEvents: "none", color: "#5b8def" }}
                         >
                           <ButtonComponent
                             isHeartClicked={isHeartClicked}
